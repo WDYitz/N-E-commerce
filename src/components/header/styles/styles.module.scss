@@ -1,0 +1,151 @@
+/* RootHeader.tsx - ROOT WRAPPER */
+.RootHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 10px;
+
+  background-color: #ededed;
+
+  @media screen and (min-width: 750px) {
+    padding: 20px;
+  }
+}
+
+/* HeaderMobMenu.tsx - MobileButton Wrapper */
+.HeaderMobileBtnWrapper {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
+
+  .burger {
+    width: 70%;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      border-radius: 20px;
+      background-color: #202020;
+      position: relative;
+      transition: ease-in-out 200ms;
+    }
+
+    &::before {
+      top: -3px;
+    }
+
+    &::after {
+      top: 3px;
+    }
+  }
+
+  .openBurger {
+    &::after {
+      transform: rotate(-45deg);
+      top: -3px;
+    }
+    &::before {
+      transform: rotate(45deg);
+      top: 0px;
+    }
+  }
+}
+
+/* HeaderLogo.tsx - HeaderLogo Wrapper and Logo image */
+.HeaderLogoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.HeaderLogoImage {
+  max-width: 100%;
+  width: 45px;
+  height: 45px;
+}
+
+/* HeaderLinks.tsx - Links Wrapper and Links */
+.HeaderRoutes {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 80px;
+  width: 100%;
+  height: 20%;
+  z-index: 10;
+
+  @media screen and (min-width: 750px) {
+    position: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }
+
+  @media screen and (min-width: 1250px) {
+    width: 30%;
+  }
+
+  li {
+    .HeaderLink {
+      cursor: pointer;
+      position: relative;
+      color: #202020;
+
+      &:after {
+        content: "";
+        width: 0%;
+        height: 2px;
+        border-radius: 20px;
+        background-color: #686868;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        transition: ease-in-out 200ms;
+      }
+
+      &:hover::after {
+        content: "";
+        width: 100%;
+      }
+    }
+  }
+}
+
+.opened {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e9e9e9;
+}
+
+/* HeaderCart.tsx - Cart Wrapper */
+.HeaderCartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  font-size: 1.7em;
+  color: #686868;
+  transition: 200ms;
+
+  &:hover {
+    color: rgb(153, 153, 153);
+  }
+}

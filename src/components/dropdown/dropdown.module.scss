@@ -1,0 +1,43 @@
+$text-color: white;
+
+.Dropdown {
+  width: 90%;
+  background-color: $text-color;
+  padding: 15px 10px 15px 17px;
+  color: $text-color;
+  border-radius: 7px;
+  background-color: #202020;
+  cursor: pointer;
+  position: relative;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+
+  .DropdownSlide {
+    height: 0px;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    color: $text-color;
+    background-color: #202020;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: ease-in-out 150ms;
+    border-radius: 7px;
+    z-index: 9;
+
+    li {
+      padding: 15px 10px 15px 17px;
+      letter-spacing: 1px;
+      color: $text-color;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.068);
+      }
+    }
+  }
+  .dropOpen {
+    height: 400%;
+  }
+}

@@ -1,0 +1,65 @@
+/* CartTotal.tsx Cart Total*/
+.CartTotal {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  background-color: #e9e9e9;
+  width: 100%;
+  padding: 20px;
+
+  h2 {
+    color: #414141;
+  }
+
+  button {
+    padding: 7px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: #202020;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #3b3b3b;
+    }
+  }
+}
+
+/* CartItem.tsx  Item info Cart*/
+.CartItem {
+  height: 100%;
+  margin: 10px;
+
+  ul {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+    }
+
+    li:first-child {
+      color: rgb(37, 37, 37);
+    }
+
+    li {
+      color: rgb(78, 78, 78);
+    }
+  }
+
+  button {
+    padding: 10px;
+    background-color: rgb(241, 72, 72);
+    border-radius: 12px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
