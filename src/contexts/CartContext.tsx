@@ -24,6 +24,7 @@ export function CartProvider({ children }: CartProviderTypeProp) {
     )
 }
 
+// useCart HOOK
 export function useCart() {
     return useContext(CartContext)
 }

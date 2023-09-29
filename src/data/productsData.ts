@@ -1,5 +1,12 @@
 import { ItemType } from "@/types/Item";
 
+/*!!!!! CASO QUERIA ADICIONAR UM NOVO ITEM LEMBRE-SE DE ADICIONAR UMA DAS CATEGORIAS E SIGA O MODEL NA PASTA "TYPES">>>
+ 1 - phone
+ 2 - smartWatch
+ 3 - audio
+ 4 - tablet
+*/
+
 export const ProdData: ItemType[] = [
   {
     id: 0,
@@ -23,8 +30,7 @@ export const ProdData: ItemType[] = [
     id: 2,
     name: "SmartWatch 2023 model",
     price: 1200,
-    image:
-      "https://image01.realme.net/general/20220711/1657521687391.png.webp",
+    image: "https://image01.realme.net/general/20220711/1657521687391.png.webp",
     description: "relogio inteligente",
     category: "smartWatch",
   },
@@ -50,8 +56,7 @@ export const ProdData: ItemType[] = [
     id: 5,
     name: "Tablet 2023",
     price: 4000,
-    image:
-      "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/169544",
+    image: "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/169544",
     description: "tablet modelo 2023",
     category: "tablet",
   },

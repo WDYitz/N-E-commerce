@@ -34,7 +34,7 @@ export default function RootLayout({ children }: RootLayoutType) {
             <Header.Root>
               <Header.Links isOpen={open} />
               <Header.Cart openCart={() => { push('/carrinho') }} />
-              <Header.MobileBtn setIsOpen={() => setOpen(!open)} isOpen={open} />
+              <Header.MobileBtn setIsOpen={() => setOpen(!open)} isOpen={open} /> {/*!!!! SUBSTITUIR POR CONTEXT API, SRP */}
             </Header.Root>
             {children}
           </DropdownProvider>

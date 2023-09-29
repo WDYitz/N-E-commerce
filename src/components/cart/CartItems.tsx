@@ -18,7 +18,7 @@ export function CartItem() {
     return (
         <div className={styles.CartItem}>
             {
-                cartContext?.item.map((item, index) => (
+                cartContext?.item.map((item, index) => ( // MODIFICAÇÃO NECESSARIA !!!!
                     <ul key={index}>
                         <div>
                             <img src={item.image} alt={item.description} style={{ width: 120, height: 120, margin: 'auto' }} />
