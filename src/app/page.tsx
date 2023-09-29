@@ -39,6 +39,7 @@ export default function Home() {
         alt="foto iphone 14 PRO"
         loading='lazy'
         className={styles.ImgHome}
+        
       />
 
       <Dropdown.Root>

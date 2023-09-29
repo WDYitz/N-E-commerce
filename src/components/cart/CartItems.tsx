@@ -19,19 +19,30 @@ export function CartItem() {
         <div className={styles.CartItem}>
             {
                 cartContext?.item.map((item, index) => ( // MODIFICAÇÃO NECESSARIA !!!!
-                    <ul key={index}>
+                    <div key={index} className={styles.itemWrapper}>
                         <div>
-                            <img src={item.image} alt={item.description} style={{ width: 100, height: 100, margin: 'auto' }} />
+                            <img
+                                src={item.image}
+                                alt={item.description}
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                    margin: 'auto'
+                                }}
+                            />
                             <div className={styles.itemInfoCart}>
                                 <li>{item.name}</li>
-                                <li>{item.description}</li>
+                                <li><i>category: {item.category}</i></li>
                                 <li>R$ {item.price}</li>
                             </div>
                         </div>
 
-                        <button onClick={() => RemoveItem(item.id)}><BsFillTrash3Fill size={22} color={'white'} /></button>
+                        <button
+                            onClick={() => RemoveItem(item.id)}>
+                            <BsFillTrash3Fill size={22} color={'white'} />
+                        </button>
 
-                    </ul>
+                    </div>
                 ))
             }
         </div>

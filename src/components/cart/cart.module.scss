@@ -3,9 +3,11 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   bottom: 0;
-  background-color: #e9e9e9;
+  background-color: #dadada;
   width: 100%;
+  height: 100px;
   padding: 20px;
 
   h2 {
@@ -14,6 +16,7 @@
 
   button {
     padding: 7px;
+    height: 50px;
     width: 200px;
     border-radius: 5px;
     background-color: #202020;
@@ -28,16 +31,17 @@
 
 /* CartItem.tsx  Item info Cart*/
 .CartItem {
-  height: 100%;
-  margin: 10px;
+  height: 500px;
+  margin: 20px;
+  overflow-y: scroll;
 
-  ul {
-    margin: 10px 0;
+  .itemWrapper {
+    margin: 15px 0;
     padding: 10px;
     background-color: #ffffff;
     border-radius: 7px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 
     div {
       display: flex;
@@ -47,6 +51,7 @@
         flex-direction: column;
         justify-content: space-evenly;
         width: 60%;
+        padding: 5px;
       }
     }
 

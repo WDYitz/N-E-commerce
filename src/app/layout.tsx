@@ -14,8 +14,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Loja Phink',
-  description: 'Loja de eletronicos',
+  title: 'Carrinho de compras',
+  description: 'Carrinho de compras',
 }
 
 type RootLayoutType = {

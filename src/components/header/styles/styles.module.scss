@@ -145,6 +145,20 @@
   color: #686868;
   transition: 200ms;
 
+  &::before {
+    content: attr(data-count);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 15px;
+    text-align: center;
+  }
+
   &:hover {
     color: rgb(153, 153, 153);
   }
