@@ -1,95 +1,65 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+/* eslint-disable @next/next/no-img-element */
+'use client'
+import 'animate.css';
+import styles from './home.module.scss'
+import { Item } from '@/components/Item/index'
+import { ProdData } from '@/data/productsData'
+import { useCart } from '@/contexts/CartContext';
+import { Dropdown } from '@/components/dropdown';
+import { useDropdown } from '@/contexts/DropDownContext';
+
+
 
 export default function Home() {
+
+  const Cart = useCart();
+  const DropDown = useDropdown();
+
+  function handleDispatch(item: any) {
+    Cart?.dispatchItem({
+      type: 'ADD_ITEM',
+      payload: {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        image: item.image,
+        description: item.description,
+        category: item.category,
+      }
+    })
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <main className={styles.HomeWrapper}>
+      <div className={styles.titleHome}>
+        <h2 className='animate__animated animate__fadeInLeftBig '>Iphone 14 PRO</h2>
+      </div>
+      <img
+        src="https://pngimg.com/d/iphone_14_PNG48.png"
+        alt="foto iphone 14 PRO"
+        loading='lazy'
+        className={styles.ImgHome}
+      />
+
+      <Dropdown.Root>
+        <Dropdown.Text />
+        <Dropdown.Icon />
+        <Dropdown.Options />
+      </Dropdown.Root>
+
+      <div className={styles.homeMain}>
+        {ProdData.map((item, index) => item.category == DropDown?.filter ?
+          <Item.Root key={index}>
+            <Item.Image imgURL={item.image} ImageDescription={item.description} />
+            <Item.Title title={item.name} />
+            <Item.Description description={item.description} />
+            <Item.Price price={item.price} />
+            <Item.AddCart onClick={() => handleDispatch(item)} />
+          </Item.Root>
+          : null)
+        }
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   )
 }
