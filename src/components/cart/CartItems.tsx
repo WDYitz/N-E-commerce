@@ -21,13 +21,16 @@ export function CartItem() {
                 cartContext?.item.map((item, index) => ( // MODIFICAÇÃO NECESSARIA !!!!
                     <ul key={index}>
                         <div>
-                            <img src={item.image} alt={item.description} style={{ width: 120, height: 120, margin: 'auto' }} />
-                            <li>{item.name}</li>
-                            <li>{item.description}</li>
+                            <img src={item.image} alt={item.description} style={{ width: 100, height: 100, margin: 'auto' }} />
+                            <div className={styles.itemInfoCart}>
+                                <li>{item.name}</li>
+                                <li>{item.description}</li>
+                                <li>R$ {item.price}</li>
+                            </div>
                         </div>
-                        <li>R$ {item.price}</li>
-                        <li>Categoria: {item.category}</li>
+
                         <button onClick={() => RemoveItem(item.id)}><BsFillTrash3Fill size={22} color={'white'} /></button>
+
                     </ul>
                 ))
             }
