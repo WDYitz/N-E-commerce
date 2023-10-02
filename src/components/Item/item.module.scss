@@ -64,6 +64,11 @@
   background-color: #000000;
   margin: 5px 0;
 
+  @media screen and (min-width: 750px) {
+    height: 40px;
+    width: 100%;
+  }
+
   &:hover {
     color: #a3a1a1;
   }

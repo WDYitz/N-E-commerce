@@ -1,13 +1,8 @@
-'use client'
 import Link from 'next/link';
 import styles from './styles/styles.module.scss'
 import 'animate.css';
 
-type LinksType = {
-    isOpen: boolean;
-}
-
-export function HeaderLinks({ isOpen }: LinksType) {
+export function HeaderLinks({ isOpen }: { isOpen: boolean }) {
     const AnimationLeft = 'animate__animated animate__fadeInLeftBig animate__faster'
 
     return (
