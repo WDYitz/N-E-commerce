@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
 
+  @media screen and (min-width: 750px) {
+    margin: 0 15%;
+  }
+
+  @media screen and (min-width: 1450px) {
+    margin: 0 25%;
+  }
+
   .ImgHome {
     position: relative;
     margin: 30px auto;
@@ -26,10 +34,7 @@
       font-size: 2.2em;
 
       @media screen and (min-width: 750px) {
-        position: absolute;
-        top: 0;
-        left: 80px;
-        width: 100%;
+        display: none;
       }
     }
 

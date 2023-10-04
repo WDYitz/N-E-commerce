@@ -10,6 +10,13 @@
   height: 100px;
   padding: 20px;
 
+  @media screen and (min-width: 750px) {
+    position: unset;
+    width: 60%;
+    margin: auto;
+    border-radius: 8px;
+  }
+
   h2 {
     color: #414141;
   }
@@ -35,6 +42,15 @@
   margin: 20px;
   overflow-y: scroll;
 
+  @media screen and (min-width: 1400px) {
+    height: 700px;
+    display: grid;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
+    padding: 30px 10px 10px 10px;
+    gap: 5%;
+  }
+
   .itemWrapper {
     margin: 15px 0;
     padding: 10px;
@@ -42,6 +58,12 @@
     border-radius: 7px;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (min-width: 1400px) {
+      width: 400px;
+      height: 120px;
+      overflow: hidden;
+    }
 
     div {
       display: flex;

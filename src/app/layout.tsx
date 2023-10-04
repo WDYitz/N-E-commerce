@@ -7,16 +7,10 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import '@/styles/globals.css'
 
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
+import FooterSitemapLinks from '@/components/footer/footer';
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Carrinho de compras',
-  description: 'Carrinho de compras',
-}
 
 type RootLayoutType = {
   children: React.ReactNode

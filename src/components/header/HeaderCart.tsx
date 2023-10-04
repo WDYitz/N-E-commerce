@@ -18,7 +18,7 @@ export function HeaderCart({ openCart }: Prop) {
             onClick={openCart}
             data-count={cartContext?.item.length}
         >
-            <FaShoppingCart color={'#202020'} />
+            <FaShoppingCart />
         </div>
     )
 }

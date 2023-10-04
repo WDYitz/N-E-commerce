@@ -15,12 +15,18 @@
     "animate.css": "^4.1.1",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
-    "next": "13.4.19",
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.6.4",
+    "next": "^13.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "sass": "^1.66.1",
     "styled-components": "^6.0.7",
+    "tailwind": "^4.0.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
   }
 }

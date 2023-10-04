@@ -10,6 +10,11 @@
 
   @media screen and (min-width: 750px) {
     padding: 20px;
+    background-color: #202020;
+  }
+
+  @media screen and (min-width: 1400px) {
+    padding: 0 150px;
   }
 }
 
@@ -104,12 +109,16 @@
       position: relative;
       color: #202020;
 
+      @media screen and (min-width: 750px) {
+        color: white;
+      }
+
       &:after {
         content: "";
         width: 0%;
         height: 2px;
         border-radius: 20px;
-        background-color: #686868;
+        background-color: #ededed;
         position: absolute;
         left: 0;
         bottom: -5px;
@@ -150,6 +159,14 @@
   font-size: 1.7em;
   color: #686868;
   transition: 200ms;
+
+  svg {
+    color: #202020;
+
+    @media screen and (min-width: 750px) {
+      color: #ededed;
+    }
+  }
 
   &::before {
     content: attr(data-count);

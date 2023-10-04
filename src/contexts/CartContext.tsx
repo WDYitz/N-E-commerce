@@ -5,7 +5,7 @@ import { createContext, useContext, ReactNode, useReducer, Dispatch } from "reac
 
 type CartContextType = {
     item: ItemType[];
-    dispatchItem: Dispatch<reducerActionType>
+    dispatchItem: Dispatch<reducerActionType> 
 }
 
 type CartProviderTypeProp = {

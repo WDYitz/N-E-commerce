@@ -12,13 +12,11 @@ $text-color: white;
   margin: 30px auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   @media screen and (min-width: 750px) {
-    padding: 0;
-    height: 0;
-    overflow: hidden;
-    position: unset;
-    display: none;
+    width: 44%;
+    margin: 30px 5%;
   }
 
   .DropdownSlide {
@@ -37,21 +35,6 @@ $text-color: white;
     border-radius: 7px;
     z-index: 9;
 
-    @media screen and (min-width: 750px) {
-      position: fixed;
-      height: 50px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
-      color: $text-color;
-      background-color: #202020;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: ease-in-out 150ms;
-      z-index: 10;
-    }
-
     li {
       padding: 15px 10px 15px 17px;
       letter-spacing: 1px;
@@ -62,6 +45,6 @@ $text-color: white;
     }
   }
   .dropOpen {
-    height: 400%;
+    height: 190px;
   }
 }
