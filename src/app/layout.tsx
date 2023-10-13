@@ -8,7 +8,6 @@ import { useState } from 'react';
 import '@/styles/globals.css'
 
 import { Inter } from 'next/font/google'
-import FooterSitemapLinks from '@/components/footer/footer';
 
 const inter = Inter({ subsets: ['latin'] })
 
