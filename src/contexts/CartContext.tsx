@@ -1,5 +1,5 @@
 'use client'
-import { CartReducer } from "@/reducers/CartReducer";
+import { CartReducer, reducerActionType } from "@/reducers/CartReducer";
 import { ItemType } from "@/types/Item";
 import { createContext, useContext, ReactNode, useReducer, Dispatch } from "react";
 
