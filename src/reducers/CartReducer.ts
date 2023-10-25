@@ -19,7 +19,7 @@ type removeItem = {
   };
 };
 
-type reducerActionType = addItem | removeItem;
+export type reducerActionType = addItem | removeItem;
 
 export function CartReducer(state: ItemType[], action: reducerActionType) {
   switch (action.type) {
