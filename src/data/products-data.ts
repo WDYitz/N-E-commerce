@@ -1,15 +1,7 @@
 import { ItemType } from "@/types/Item";
 
-/*!!!!! CASO QUEIRA ADICIONAR UM NOVO ITEM LEMBRE-SE DE ADICIONAR UMA DAS CATEGORIAS E SIGA O MODEL NA PASTA "TYPES" Item.ts>>>
- 1 - phone
- 2 - smartWatch
- 3 - audio
- 4 - tablet
-*/
-
 export const ProdData: ItemType[] = [
   {
-    id: 0,
     name: "Iphone 8",
     price: 4600,
     image:
@@ -18,7 +10,6 @@ export const ProdData: ItemType[] = [
     category: "phone",
   },
   {
-    id: 1,
     name: "Iphone 14 PRO",
     price: 6400,
     image:
@@ -27,7 +18,6 @@ export const ProdData: ItemType[] = [
     category: "phone",
   },
   {
-    id: 2,
     name: "SmartWatch 2023 model",
     price: 1200,
     image: "https://image01.realme.net/general/20220711/1657521687391.png.webp",
@@ -35,7 +25,6 @@ export const ProdData: ItemType[] = [
     category: "smartWatch",
   },
   {
-    id: 3,
     name: "Samsung Galaxy 2023",
     price: 3300,
     image:
@@ -44,7 +33,6 @@ export const ProdData: ItemType[] = [
     category: "phone",
   },
   {
-    id: 4,
     name: "Fone de ouvido 2022",
     price: 340,
     image:
@@ -53,7 +41,6 @@ export const ProdData: ItemType[] = [
     category: "audio",
   },
   {
-    id: 5,
     name: "Tablet 2023",
     price: 4000,
     image: "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/169544",
@@ -61,7 +48,6 @@ export const ProdData: ItemType[] = [
     category: "tablet",
   },
   {
-    id: 6,
     name: "Ipad PRO",
     price: 8000,
     image:
@@ -70,7 +56,6 @@ export const ProdData: ItemType[] = [
     category: "tablet",
   },
   {
-    id: 7,
     name: "SmartWatch 2022",
     price: 900,
     image:
@@ -79,7 +64,6 @@ export const ProdData: ItemType[] = [
     category: "smartWatch",
   },
   {
-    id: 8,
     name: "Samsung Galaxy 2022",
     price: 4200,
     image:
@@ -88,7 +72,6 @@ export const ProdData: ItemType[] = [
     category: "phone",
   },
   {
-    id: 9,
     name: "Fone de ouvido 2023",
     price: 400,
     image:
