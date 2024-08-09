@@ -1,11 +1,17 @@
-import { ItemType } from "@/types/Item";
+export interface ItemType {
+  name: string;
+  price: number;
+  image?: string;
+  description: string;
+  category: string;
+}
 
 export const ProdData: ItemType[] = [
   {
     name: "Iphone 8",
     price: 4600,
     image:
-      "https://www.outletfone.com.br/media/catalog/product/cache/1/thumbnail/350x/9df78eab33525d08d6e5fb8d27136e95/1/1/1106e98c79c45444891461.jpg",
+      "https://e7.pngegg.com/pngimages/104/8/png-clipart-iphone-x-apple-smartphone-space-grey-iphone-se-iphone8-electronics-gadget.png",
     description: "64GB 4.7 polegadas resolução de 1334x750 pixels",
     category: "phone",
   },
@@ -18,7 +24,7 @@ export const ProdData: ItemType[] = [
     category: "phone",
   },
   {
-    name: "SmartWatch 2023 model",
+    name: "Smart Watch 2023 model",
     price: 1200,
     image: "https://image01.realme.net/general/20220711/1657521687391.png.webp",
     description: "relogio inteligente",
@@ -56,7 +62,7 @@ export const ProdData: ItemType[] = [
     category: "tablet",
   },
   {
-    name: "SmartWatch 2022",
+    name: "Smart Watch 2022",
     price: 900,
     image:
       "https://d2r9epyceweg5n.cloudfront.net/stores/001/173/492/products/u981-28c259f73417b0c5a416796617944098-480-0.png",
