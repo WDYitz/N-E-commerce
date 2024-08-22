@@ -14,12 +14,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Card className="rounded-md shadow-md p-3 min-w-[170px] h-[270px]">
       <CardContent className="flex flex-col items-center p-0 gap-4 w-full h-full">
-        <div className="relative w-full h-[50%]">
+        <div className="relative w-full h-[60%]">
           <Image
-            src="/banner-01.jpg"
+            src={product.image ?? ""}
             alt={product.name}
             fill
-            className="object-cover rounded-sm"
+            className="object-scale-down rounded-sm"
           />
         </div>
         <div className="flex flex-col gap-2  justify-between w-full h-[50%]">
