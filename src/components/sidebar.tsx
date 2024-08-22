@@ -35,7 +35,9 @@ const Sidebar = () => {
               <Category
                 key={index}
                 category={link}
-                className={path === "/category" + link.url ? "bg-secondary" : ""}
+                className={
+                  path === "/category" + link.url ? "bg-secondary" : ""
+                }
               />
             ))}
           </div>

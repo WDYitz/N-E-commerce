@@ -1,8 +1,12 @@
 "use client";
-import { useParams } from "next/navigation";
 
-const CategoryPage = () => {
-  const params = useParams();
+interface CategoryPageProps {
+  params: {
+    name: string;
+  };
+}
+
+const CategoryPage = ({ params }: CategoryPageProps) => {
   return (
     <div>
       <p>{params.name}</p>
