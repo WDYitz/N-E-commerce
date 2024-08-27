@@ -7,7 +7,7 @@ const CategoriesQuickSearch = () => {
       {LinksData.map(
         (link, index) =>
           link.url !== "/" && (
-            <Category key={index} category={link} className="w-[150px]" />
+            <Category key={index} category={link} className="w-[150px] bg-secondary" />
           )
       )}
     </div>
