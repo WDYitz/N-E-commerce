@@ -210,7 +210,7 @@ const seedDatabase = async () => {
     await createEarbuds();
     await createSmartwatch();
   } catch (error) {
-    console.error("Erro ao criar os produtos", error);
+    console.error("Erro ao criar os Produtos", error);
   } finally {
     await db.$disconnect();
   }

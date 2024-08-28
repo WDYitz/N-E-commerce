@@ -1,6 +1,6 @@
-import { ProductType } from "@/data/products-data";
 import { cn } from "@/lib/utils";
-import { services } from "@/useCases/formatCurrency";
+import { services } from "@/useCases/services";
+import { Category, Product } from "@prisma/client";
 import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,13 +9,23 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
 interface ProductCardProps {
-  product: ProductType;
+  product: Pick<
+    Product,
+    | "imageURL"
+    | "name"
+    | "id"
+    | "stars"
+    | "price"
+    | "discountPercentage"
+    | "categoryId"
+  >;
+  category?: Pick<Category, "name">;
   className?: string;
 }
 
-const ProductCard = ({ className, product }: ProductCardProps) => {
+const ProductCard = ({ className, category, product }: ProductCardProps) => {
   return (
-    <Link href={`/category/${product.category}/${product.id}`}>
+    <Link href={`/category/${category?.name}/${product.id}`}>
       <Card className="rounded-md shadow-md p-3 min-w-[170px] h-[270px]">
         <CardContent
           className={cn(
@@ -25,7 +35,7 @@ const ProductCard = ({ className, product }: ProductCardProps) => {
         >
           <div className="relative w-full h-[60%]">
             <Image
-              src={product.image ?? ""}
+              src={product.imageURL ?? ""}
               alt={product.name}
               fill
               sizes="100%"
@@ -45,10 +55,10 @@ const ProductCard = ({ className, product }: ProductCardProps) => {
             <div className="flex justify-between items-end">
               <div className="flex flex-col space-y-1">
                 <span className="text-xs text-gray-400 line-through">
-                  {services.formatCurrency(product.price)}
+                  {services.formatCurrency(Number(product.price))}
                 </span>
                 <span className="text-sm">
-                  {services.formatCurrency(product.price - 250)}
+                  {services.formatCurrency(Number(product.price))}
                 </span>
               </div>
 

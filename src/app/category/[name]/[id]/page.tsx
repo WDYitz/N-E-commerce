@@ -13,7 +13,7 @@ interface ProductPageProps {
   };
 }
 const ProductPage = ({ params }: ProductPageProps) => {
-  const product = productUseCase.getProductById(params.id);
+  const products = productUseCase.getProductById(params.id);
 
   if (!product) {
     notFound();

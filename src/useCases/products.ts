@@ -1,18 +1,41 @@
-import { ProductsData, ProductType } from "@/data/products-data";
+import { db } from "@/lib/prisma";
+import { PrismaClient, Product } from "@prisma/client";
 import { UUID } from "crypto";
 
 class ProductUseCase {
-  constructor(private productRepositoryData: ProductType[]) { }
+  constructor(private prismaRepository: PrismaClient) { }
 
-  getProductById = (id: UUID): ProductType => {
-    return this.productRepositoryData.filter((prod) => prod.id === id)[0];
+  getAllProducts = async (): Promise<Product[]> => {
+    const products = await this.prismaRepository.product.findMany();
+    return products;
   }
 
-  getProductsByCategory = (name: string): ProductType[] => {
-    return this.productRepositoryData.filter((prod) => prod.category === name);
+  getProductById = async (id: UUID): Promise<Product> => {
+    const product = await this.prismaRepository.product.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!product) {
+      throw new Error("Product not found");
+    }
+
+    return product;
   }
+
+  getProductsByCategoryId = async (id: string): Promise<Product[]> => {
+    const products = await this.prismaRepository.product.findMany({
+      where: {
+        category: {
+          id,
+        },
+      },
+    });
+
+    return products;
+  }
+
 }
 
-// The '[0]' at the end of the 'getProductById' method is to return the first element of the array, since the filter method returns an array of elements that match the condition. In this case, we are assuming that the id and category are unique, so we can safely return the first element of the array.
-
-export const productUseCase = new ProductUseCase(ProductsData);
+export const productUseCase = new ProductUseCase(db);

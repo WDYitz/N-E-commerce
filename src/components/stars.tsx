@@ -1,4 +1,4 @@
-import { stars } from "@/useCases/stars";
+import { services } from "@/useCases/services";
 import { Star } from "lucide-react";
 
 interface StarsProps {
@@ -6,7 +6,7 @@ interface StarsProps {
 }
 
 const Stars = ({ rating }: StarsProps) => {
-  const starsRate = stars.createRating(rating);
+  const starsRate = services.createRating(rating);
 
   return (
     <>
