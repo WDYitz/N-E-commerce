@@ -1,10 +1,10 @@
-import { CategoryType } from "@/data/links-data";
+import { CategoryLinkType } from "@/data/links";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
 interface CategoryProps {
-  category: CategoryType;
+  category: CategoryLinkType;
   className?: string;
 }
 
