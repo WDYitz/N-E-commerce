@@ -1,6 +1,5 @@
 import { db } from "@/lib/prisma";
 import { PrismaClient, Product } from "@prisma/client";
-import { UUID } from "crypto";
 
 class ProductUseCase {
   constructor(private prismaRepository: PrismaClient) { }
@@ -10,7 +9,7 @@ class ProductUseCase {
     return products;
   }
 
-  getProductById = async (id: UUID): Promise<Product> => {
+  getProductById = async (id: string): Promise<Product> => {
     const product = await this.prismaRepository.product.findUnique({
       where: {
         id,
