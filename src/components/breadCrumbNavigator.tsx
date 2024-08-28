@@ -7,13 +7,17 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ItemType } from "@/data/products-data";
+import { ProductType } from "@/data/products-data";
 
 interface BreadcrumbNavigatorProps {
-  product: Pick<ItemType, "category" | "name" | "id">;
+  product: Pick<ProductType, "category" | "name" | "id">;
+  categoryOnly?: boolean;
 }
 
-const BreadcrumbNavigator = ({ product }: BreadcrumbNavigatorProps) => {
+const BreadcrumbNavigator = ({
+  categoryOnly,
+  product,
+}: BreadcrumbNavigatorProps) => {
   const CATEGORY_URI = `/category/${product?.category}`;
 
   return (
@@ -42,14 +46,18 @@ const BreadcrumbNavigator = ({ product }: BreadcrumbNavigatorProps) => {
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="" className="text-xs">
-              {product?.name ?? "..."}
-            </Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+        {!categoryOnly && (
+          <>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="" className="text-xs">
+                  {product?.name ?? "..."}
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </>
+        )}
       </BreadcrumbList>
     </Breadcrumb>
   );
