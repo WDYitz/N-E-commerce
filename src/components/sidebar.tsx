@@ -1,5 +1,5 @@
 "use client";
-import { LinksData } from "@/data/links-data";
+import { Links } from "@/data/links";
 import { MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Category from "./category";
@@ -31,7 +31,7 @@ const Sidebar = () => {
         {/* Links */}
         <SheetClose asChild>
           <div className="mt-5 space-y-2">
-            {LinksData.map((link, index) => (
+            {Links.map((link, index) => (
               <Category
                 key={index}
                 category={link}
