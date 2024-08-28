@@ -1,4 +1,4 @@
-"use client";
+import { productUseCase } from "@/useCases/products";
 
 interface CategoryPageProps {
   params: {
@@ -7,10 +7,15 @@ interface CategoryPageProps {
 }
 
 const CategoryPage = ({ params }: CategoryPageProps) => {
+  const products = productUseCase.getProductsByCategory(params.name);
+
   return (
-    <div>
-      <p>{params.name}</p>
-    </div>
+    <main className="flex flex-col p-5 space-y-4">
+      <h2>{params.name.toLocaleUpperCase()}</h2>
+      {products.map((product) => (
+        <p key={product?.id}>{product?.name}</p>
+      ))}
+    </main>
   );
 };
 
