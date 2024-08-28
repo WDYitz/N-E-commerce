@@ -58,7 +58,12 @@ const ProductCard = ({ className, category, product }: ProductCardProps) => {
                   {services.formatCurrency(Number(product.price))}
                 </span>
                 <span className="text-sm">
-                  {services.formatCurrency(Number(product.price))}
+                  {services.formatCurrency(
+                    services.calculateProductsWithDiscount({
+                      price: product.price,
+                      discountPercentage: product.discountPercentage,
+                    })
+                  )}
                 </span>
               </div>
 
