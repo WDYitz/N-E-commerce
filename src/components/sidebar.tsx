@@ -1,23 +1,21 @@
 "use client";
 import { ShoppingCart } from "lucide-react";
-import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import {
   Sheet,
   SheetContent,
   SheetFooter,
   SheetHeader,
-  SheetTrigger
+  SheetTrigger,
 } from "./ui/sheet";
 
 const Sidebar = () => {
-  const path = usePathname();
   return (
     <Sheet>
       <SheetTrigger asChild>
         {/* Menu Button */}
-        <Button variant="ghost" className="text-white">
-          <ShoppingCart size={24} className="text-primary" />
+        <Button variant="secondary">
+          <ShoppingCart size={22} className="text-white" fill="white" />
         </Button>
       </SheetTrigger>
       <SheetContent>
