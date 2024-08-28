@@ -66,7 +66,7 @@ export const ProductsData: ProductType[] = [
     id: randomUUID(),
     name: "Tablet 2023",
     price: 4000,
-    image: "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/169544",
+    image: "https://utfs.io/f/c1cdd971-3b43-4149-88a5-4371983b34e3-ekqzdm.png",
     description: "tablet modelo 2023",
     category: "tablet",
     stars: 4,
@@ -86,7 +86,7 @@ export const ProductsData: ProductType[] = [
     name: "Smart Watch 2022",
     price: 900,
     image:
-      "",
+      "https://utfs.io/f/3b8d88f7-aa0a-4413-8a53-9bd4eb10918b-ng3e6d.png",
     description: "relogio inteligente modelo 2022",
     category: "smartWatch",
     stars: 4,

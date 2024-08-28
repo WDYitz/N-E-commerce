@@ -1,4 +1,5 @@
-import { ItemType } from "@/data/products-data";
+import { ProductType } from "@/data/products-data";
+import { cn } from "@/lib/utils";
 import { services } from "@/useCases/formatCurrency";
 import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
@@ -8,14 +9,20 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
 interface ProductCardProps {
-  product: ItemType;
+  product: ProductType;
+  className?: string;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ className, product }: ProductCardProps) => {
   return (
-    <Link href={`category/${product.category}/${product.id}`}>
+    <Link href={`/category/${product.category}/${product.id}`}>
       <Card className="rounded-md shadow-md p-3 min-w-[170px] h-[270px]">
-        <CardContent className="flex flex-col items-center p-0 gap-4 w-full h-full">
+        <CardContent
+          className={cn(
+            "flex flex-col items-center p-0 gap-4 w-full h-full",
+            className
+          )}
+        >
           <div className="relative w-full h-[60%]">
             <Image
               src={product.image ?? ""}

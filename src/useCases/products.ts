@@ -1,9 +1,10 @@
 import { ProductsData, ProductType } from "@/data/products-data";
+import { UUID } from "crypto";
 
 class ProductUseCase {
   constructor(private productRepositoryData: ProductType[]) { }
 
-  getProductById = (id: string): ProductType => {
+  getProductById = (id: UUID): ProductType => {
     return this.productRepositoryData.filter((prod) => prod.id === id)[0];
   }
 
