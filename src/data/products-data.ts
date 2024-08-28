@@ -1,14 +1,20 @@
-export interface ItemType {
+import { randomUUID } from "crypto";
+
+type CategoryNameType = "phone" | "smartWatch" | "tablet" | "audio";
+
+export interface ProductType {
+  id: string;
   name: string;
   price: number;
   image?: string;
   description: string;
-  category: string;
+  category: CategoryNameType;
   stars?: number;
 }
 
-export const ProdData: ItemType[] = [
+export const ProductsData: ProductType[] = [
   {
+    id: randomUUID(),
     name: "Apple Iphone 8",
     price: 4600,
     image:
@@ -18,6 +24,7 @@ export const ProdData: ItemType[] = [
     stars: 4,
   },
   {
+    id: randomUUID(),
     name: "Apple Iphone 15 PRO",
     price: 6400,
     image:
@@ -27,6 +34,7 @@ export const ProdData: ItemType[] = [
     stars: 5,
   },
   {
+    id: randomUUID(),
     name: "Smart Watch",
     price: 1200,
     image: "https://utfs.io/f/3b8d88f7-aa0a-4413-8a53-9bd4eb10918b-ng3e6d.png",
@@ -35,6 +43,7 @@ export const ProdData: ItemType[] = [
     stars: 4,
   },
   {
+    id: randomUUID(),
     name: "Samsung Galaxy",
     price: 3300,
     image:
@@ -44,6 +53,7 @@ export const ProdData: ItemType[] = [
     stars: 4,
   },
   {
+    id: randomUUID(),
     name: "Apple Airpod",
     price: 340,
     image:
@@ -53,6 +63,7 @@ export const ProdData: ItemType[] = [
     stars: 5,
   },
   {
+    id: randomUUID(),
     name: "Tablet 2023",
     price: 4000,
     image: "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/169544",
@@ -61,6 +72,7 @@ export const ProdData: ItemType[] = [
     stars: 4,
   },
   {
+    id: randomUUID(),
     name: "Ipad PRO",
     price: 8000,
     image:
@@ -70,15 +82,17 @@ export const ProdData: ItemType[] = [
     stars: 5,
   },
   {
+    id: randomUUID(),
     name: "Smart Watch 2022",
     price: 900,
     image:
-      "https://d2r9epyceweg5n.cloudfront.net/stores/001/173/492/products/u981-28c259f73417b0c5a416796617944098-480-0.png",
+      "",
     description: "relogio inteligente modelo 2022",
     category: "smartWatch",
     stars: 4,
   },
   {
+    id: randomUUID(),
     name: "Samsung Galaxy 2022",
     price: 4200,
     image:
@@ -88,10 +102,11 @@ export const ProdData: ItemType[] = [
     stars: 5,
   },
   {
+    id: randomUUID(),
     name: "Fone de ouvido 2023",
     price: 400,
     image:
-      "https://img.freepik.com/vetores-gratis/composicao-realista-sem-fio-de-fones-de-ouvido-com-imagem-isolada-de-telefones-com-estacao-de-dock-de-banco-de-potencia-com-ilustracao-vetorial-de-reflexoes_1284-73201.jpg?w=826&t=st=1693247550~exp=1693248150~hmac=87ae144e8fc55b6526a06e6c43aa2c1106badbf666a42b569ca7e57d50c6c629",
+      "",
     description: "fone de ouvido com bateria de 32hrs, aprova d' agua",
     category: "audio",
     stars: 4,

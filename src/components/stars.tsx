@@ -1,3 +1,4 @@
+import { stars } from "@/useCases/stars";
 import { Star } from "lucide-react";
 
 interface StarsProps {
@@ -5,16 +6,12 @@ interface StarsProps {
 }
 
 const Stars = ({ rating }: StarsProps) => {
-  let stars = Array.from({ length: rating }, (_, index) => index + 1);
-
-  if (rating === 0 || rating === undefined || rating === null) {
-    stars = Array.from({ length: 5 }, (_, index) => index + 1);
-  }
+  const starsRate = stars.createRating(rating);
 
   return (
     <>
-      {stars.map((star) => (
-        <Star key={star} size={14} fill="#8161ff" />
+      {starsRate.map((star) => (
+        <Star key={star} size={14} className="text-[#8161ff]" fill="#8161ff" />
       ))}
     </>
   );

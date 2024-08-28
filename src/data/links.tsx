@@ -1,22 +1,20 @@
 import {
-  CameraIcon,
   HeadphonesIcon,
   HomeIcon,
   LaptopIcon,
   Smartphone,
-  SmartphoneCharging,
   TabletIcon,
   Watch,
 } from "lucide-react";
 import { ReactElement } from "react";
 
-export interface CategoryType {
+export interface CategoryLinkType {
   name: string;
   url: string;
   icon: ReactElement;
 }
 
-export const LinksData: CategoryType[] = [
+export const Links: CategoryLinkType[] = [
   {
     name: "Home",
     url: "/",
@@ -24,37 +22,27 @@ export const LinksData: CategoryType[] = [
   },
   {
     name: "Tablets",
-    url: "/tablets",
+    url: "/tablet",
     icon: <TabletIcon size={20} className="text-primary" />,
   },
   {
     name: "Phones",
-    url: "/phones",
+    url: "/phone",
     icon: <Smartphone size={18} className="text-primary" />,
   },
   {
     name: "Earbuds",
-    url: "/earbuds",
+    url: "/audio",
     icon: <HeadphonesIcon size={18} className="text-primary" />,
   },
   {
     name: "Smart W.",
-    url: "/smartwatches",
+    url: "/smartWatch",
     icon: <Watch size={20} className="text-primary" />,
   },
   {
     name: "Laptops",
-    url: "/laptops",
+    url: "/laptop",
     icon: <LaptopIcon size={18} className="text-primary" />,
-  },
-  {
-    name: "Cameras",
-    url: "/cameras",
-    icon: <CameraIcon size={18} className="text-primary" />,
-  },
-  {
-    name: "Accessories",
-    url: "/accessories",
-    icon: <SmartphoneCharging size={18} className="text-primary" />,
   },
 ];
