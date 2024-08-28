@@ -3,11 +3,12 @@ import FavoriteButton from "@/components/favoriteButton";
 import Stars from "@/components/stars";
 import { Separator } from "@/components/ui/separator";
 import { productUseCase } from "@/useCases/products";
+import { UUID } from "crypto";
 import { notFound } from "next/navigation";
 
 interface ProductPageProps {
   params: {
-    id: string;
+    id: UUID;
   };
 }
 const ProductPage = ({ params }: ProductPageProps) => {
