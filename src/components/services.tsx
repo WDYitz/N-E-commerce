@@ -6,6 +6,7 @@ interface AdvantagesProps {
 }
 
 const Services = ({ service }: AdvantagesProps) => {
+
   return (
     <Card className="p-2 h-[230px] w-[46%] hover:border-indigo-400 transition-all">
       <CardContent className="p-0 flex flex-col justify-center items-center gap-3 h-full">
