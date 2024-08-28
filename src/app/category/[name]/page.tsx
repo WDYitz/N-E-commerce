@@ -17,9 +17,9 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
         <BreadcrumbNavigator product={products[0]} categoryOnly />
       </div>
       <h2>{params.name.toLocaleUpperCase()}</h2>
-      <div className="grid grid-cols-2 ">
+      <div className="grid grid-cols-1 gap-4">
         {products.map((product) => (
-          <ProductCard product={product} key={product.id} className="flex"/>
+          <ProductCard product={product} key={product.id} />
         ))}
       </div>
     </main>
