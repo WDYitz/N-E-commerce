@@ -1,65 +1,47 @@
-/* eslint-disable @next/next/no-img-element */
-'use client'
-import 'animate.css';
-import styles from './home.module.scss'
-import { Item } from '@/components/Item/index'
-import { ProdData } from '@/data/productsData'
-import { useCart } from '@/contexts/CartContext';
-import { Dropdown } from '@/components/dropdown';
-import { useDropdown } from '@/contexts/DropDownContext';
+import CategoriesQuickSearch from "@/components/categories-quick-search";
+import ProductCard from "@/components/product-card";
+import Services from "@/components/services";
+import { ServicesData } from "@/data/services-data";
+import { productUseCase } from "@/useCases/products";
+import Image from "next/image";
 
-
-
-export default function Home() {
-
-  const Cart = useCart();
-  const DropDown = useDropdown();
-
-  function handleDispatch(item: any) {
-    Cart?.dispatchItem({
-      type: 'ADD_ITEM',
-      payload: {
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        image: item.image,
-        description: item.description,
-        category: item.category,
-      }
-    })
-  }
+const Home = async () => {
+  const products = await productUseCase.getAllProducts();
 
   return (
-    <main className={styles.HomeWrapper}>
-      <div className={styles.titleHome}>
-        <h2 className='animate__animated animate__fadeInLeftBig '>Iphone 14 PRO</h2>
-      </div>
-      <img
-        src="https://pngimg.com/d/iphone_14_PNG48.png"
-        alt="foto iphone 14 PRO"
-        loading='lazy'
-        className={styles.ImgHome}
-      />
+    <main className="flex flex-col p-5 space-y-4 ">
+      <CategoriesQuickSearch />
 
-      <Dropdown.Root>
-        <Dropdown.Text />
-        <Dropdown.Icon />
-        <Dropdown.Options />
-      </Dropdown.Root>
-
-      <div className={styles.homeMain}>
-        {ProdData.map((item, index) => item.category == DropDown?.filter ?
-          <Item.Root key={index}>
-            <Item.Image imgURL={item.image} ImageDescription={item.description} />
-            <Item.Title title={item.name} />
-            <Item.Description description={item.description} />
-            <Item.Price price={item.price} />
-            <Item.AddCart onClick={() => handleDispatch(item)} />
-          </Item.Root>
-          : null)
-        }
+      <div className="rounded-md p-5 relative w-full h-[140px]">
+        <Image alt="Ofertas inperdiveis" src="/banner.png" fill priority />
       </div>
 
+      <div>
+        <h2 className="text-sm font-semibold uppercase text-neutral-500">
+          Produtos em destaque
+        </h2>
+        <div className="flex overflow-x-scroll [&::-webkit-scrollbar]:hidden gap-4 mt-4">
+          {products.map(
+            (product) =>
+              product.stars > 4 && (
+                <ProductCard key={product.id} product={product} />
+              )
+          )}
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-sm font-semibold uppercase text-neutral-500">
+          por que nós escolher?
+        </h2>
+        <div className="flex flex-wrap gap-6 mt-4 justify-center">
+          {ServicesData.map((service, index) => (
+            <Services key={index} service={service} />
+          ))}
+        </div>
+      </div>
     </main>
-  )
-}
+  );
+};
+
+export default Home;

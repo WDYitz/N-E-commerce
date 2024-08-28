@@ -1,30 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+@layer base {
+  .dark {
+    --background: 225 9% 9%;
+    --foreground: 210 40% 98%;
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  border: 0;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-}
+    --card: 228 9% 11%;
+    --card-foreground: 210 40% 98%;
 
-:root {
-  --pri_color: #d9e2e9;
-}
+    --popover: 228 9% 11%;
+    --popover-foreground: 210 40% 98%;
 
-body {
-  width: 100%;
-  height: 100vh;
-  background-color: #ededed;
-}
+    --primary: 252 100% 69%;
+    --primary-foreground: 0 0% 100%;
 
-/* @media screen and (min-width: 600px) {
-  body {
-    display: none;
+    --secondary: 228 6% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 228 6% 16%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 228 6% 16%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 6% 16%;
+    --input: 228 6% 16%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.5rem;
   }
-} */
+}
+
+@layer base {
+  * {
+    @apply border-border antialiased;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

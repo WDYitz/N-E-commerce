@@ -1,38 +1,30 @@
-'use client'
-import { CartProvider } from '@/contexts/CartContext'
-import { DropdownProvider } from '@/contexts/DropDownContext';
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import "@/styles/globals.css";
+import { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import { PropsWithChildren } from "react";
 
-import { Header } from '@/components/header/index'
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import '@/styles/globals.css'
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
-
-type RootLayoutType = {
-  children: React.ReactNode
+export const metadata: Metadata = {
+  title: "None E-commerce",
+  description: "Melhores produtos eletrônicos",
 }
 
-export default function RootLayout({ children }: RootLayoutType) {
-  const [open, setOpen] = useState(false);
-  const { push } = useRouter();
-
+const Layout = ({ children }: PropsWithChildren) => {
   return (
-    < html lang="pt-BR" >
-      <body className={inter.className}>
-        <CartProvider>
-          <DropdownProvider>
-            <Header.Root>
-              <Header.Links isOpen={open} />
-              <Header.Cart openCart={() => { push('/carrinho') }} />
-              <Header.MobileBtn setIsOpen={() => setOpen(!open)} isOpen={open} /> {/*!!!! SUBSTITUIR POR CONTEXT API, SRP */}
-            </Header.Root>
-            {children}
-          </DropdownProvider>
-        </CartProvider>
+    <html lang="pt-BR" className="dark">
+      <body className={poppins.className}>
+        <Header />
+        {children}
+        <Footer />
       </body>
-    </html >
-  )
-}
+    </html>
+  );
+};
+
+export default Layout;
