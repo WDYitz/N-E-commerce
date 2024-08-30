@@ -9,35 +9,11 @@ class CategoryUseCase {
     return categories;
   }
 
-  getCategoryById = async (id: string): Promise<Category | null> => {
-    const category = await this.prismaRepository.category.findUnique({
-      where: {
-        id,
-      },
-    });
-
-    return category;
-  }
-
   getCategoryByName = async (name: string): Promise<Category | null> => {
     const category = await this.prismaRepository.category.findFirst({
       where: {
         name,
       },
-    });
-
-    return category;
-  }
-
-  getCategoryByProductId = async (productId: string): Promise<Category | null> => {
-    const category = await this.prismaRepository.category.findFirst({
-      where: {
-        products: {
-          every: {
-            id: productId,
-          },
-        },
-      }
     });
 
     return category;
