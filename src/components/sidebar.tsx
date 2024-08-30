@@ -2,7 +2,7 @@
 import { ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
-import { Sheet, SheetContent, SheetFooter, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const Sidebar = () => {
   return (
@@ -14,6 +14,8 @@ const Sidebar = () => {
         </Button>
       </SheetTrigger>
       <SheetContent>
+
+        <SheetTitle>Carrinho</SheetTitle>
         <div className="flex h-full flex-col justify-between py-5">
           <div className="space-y-2">
             {/*  {products.map((product) => (

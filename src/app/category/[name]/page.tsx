@@ -14,7 +14,7 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
 
   if (!category) {
     return (
-      <div className="px-5 text-md text-slate-400">Category not found 404</div>
+      <div className="px-5 text-md text-slate-400">Category not found</div>
     );
   }
 

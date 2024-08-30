@@ -3,8 +3,8 @@ import FavoriteButton from "@/components/favoriteButton";
 import Stars from "@/components/stars";
 import { Separator } from "@/components/ui/separator";
 import { productUseCase } from "@/useCases/products";
+import { services } from "@/useCases/services";
 import Image from "next/image";
-
 import { notFound } from "next/navigation";
 
 interface ProductPageProps {
@@ -35,8 +35,30 @@ const ProductPage = async ({ params }: ProductPageProps) => {
           <Stars rating={product.stars ?? 0} />
         </div>
       </div>
-      <div className="py-2 relative w-full max-w-[300px] min-h-[250px] flex justify-center items-center">
-        <Image alt={product.name} src={product.imageURL} fill />
+      <div className="flex  justify-center items-center py-2">
+        <div className="relative w-full max-w-[250px] h-[250px]">
+          <Image alt={product.name} src={product.imageURL} fill />
+        </div>
+      </div>
+      <p className="text-xs text-slate-400 font-semibold">
+        {product.quantity < 1 ? "Fora de Estoque" : "Em Estoque"}
+      </p>
+      <div className="flex flex-col space-y-2">
+        <span className="text-sm line-through">
+          {services.formatCurrency(Number(product.price))}
+        </span>
+        <span className="text-xl text-primary font-bold">
+          {services.formatCurrency(
+            services.calculateProductsWithDiscount({
+              price: product.price,
+              discountPercentage: product.discountPercentage,
+            })
+          )}
+        </span>
+        <p className="font-light text-sm">
+          Com descontos de{" "}
+          <span className="font-bold">{product.discountPercentage}%</span>
+        </p>
       </div>
     </main>
   );

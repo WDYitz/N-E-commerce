@@ -5,6 +5,7 @@ import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Stars from "./stars";
+import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
@@ -24,15 +25,24 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ className, category, product }: ProductCardProps) => {
+  const hasDiscount = product.discountPercentage > 0;
+
   return (
     <Link href={`/category/${category?.name}/${product.id}`}>
       <Card className="rounded-md shadow-md p-3 min-w-[170px] h-[270px]">
         <CardContent
           className={cn(
-            "flex flex-col items-center p-0 gap-4 w-full h-full",
+            "flex flex-col items-center p-0 gap-4 w-full h-full relative pt-4",
             className
           )}
         >
+
+          {hasDiscount && (
+            <Badge className="absolute top-0 left-0 z-10">
+              {product?.discountPercentage}% OFF
+            </Badge>
+          )}
+
           <div className="relative w-full h-[60%]">
             <Image
               src={product.imageURL ?? ""}
@@ -55,7 +65,8 @@ const ProductCard = ({ className, category, product }: ProductCardProps) => {
             <div className="flex justify-between items-end">
               <div className="flex flex-col space-y-1">
                 <span className="text-xs text-gray-400 line-through">
-                  {services.formatCurrency(Number(product.price))}
+                  {hasDiscount &&
+                    services.formatCurrency(Number(product.price))}
                 </span>
                 <span className="text-sm">
                   {services.formatCurrency(

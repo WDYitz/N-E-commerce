@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 import { useMedia } from "react-use";
 
 const ScreensInDevelopment = ({ children }: PropsWithChildren) => {
-  const isMobile = useMedia("(min-width: 500px)");
+  const isMobile = useMedia("(min-width: 500px)", false);
 
   if (isMobile) {
     return (
