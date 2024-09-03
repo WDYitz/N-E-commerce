@@ -8,6 +8,7 @@ const useProductsFactory = async (id: string) => {
     category.id
   );
 
+
   return { category, product, relatedProducts };
 };
 
