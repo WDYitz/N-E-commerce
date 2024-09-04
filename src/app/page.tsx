@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Home = async () => {
   const { products } = await productUseCase.getAllProductsWithCategories();
-  
+
   return (
     <main className="flex flex-col p-5 space-y-4 ">
       <CategoriesQuickSearch />
@@ -24,11 +24,7 @@ const Home = async () => {
           {products.map(
             (product) =>
               product.stars > 4 && (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                
-                />
+                <ProductCard key={product.id} product={product} />
               )
           )}
         </div>

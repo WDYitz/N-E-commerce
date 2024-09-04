@@ -1,5 +1,6 @@
 import { db } from "@/lib/prisma";
 import { PrismaClient, Product } from "@prisma/client";
+import { notFound } from "next/navigation";
 
 interface ProductWithCategoryType {
   product: Product;
@@ -42,7 +43,7 @@ class ProductUseCase {
     });
 
     if (!product) {
-      throw new Error("Product not found");
+      notFound()
     }
 
     return { product, category: product.category };

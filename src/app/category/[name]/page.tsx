@@ -1,7 +1,6 @@
 import BreadcrumbNavigator from "@/components/breadCrumbNavigator";
 import ProductCard from "@/components/product-card";
-import { categoryUseCase } from "@/useCases/category";
-import { productUseCase } from "@/useCases/products";
+import useCategoryFactory from "@/hooks/use-category-factory";
 
 interface CategoryPageProps {
   params: {
@@ -10,15 +9,7 @@ interface CategoryPageProps {
 }
 
 const CategoryPage = async ({ params }: CategoryPageProps) => {
-  const category = await categoryUseCase.getCategoryByName(params.name);
-
-  if (!category) {
-    return (
-      <div className="px-5 text-md text-slate-400">Category not found</div>
-    );
-  }
-
-  const products = await productUseCase.getProductsByCategoryId(category.id);
+  const { category, products } = await useCategoryFactory(params.name);
 
   return (
     <main className="flex flex-col p-5 space-y-4">
