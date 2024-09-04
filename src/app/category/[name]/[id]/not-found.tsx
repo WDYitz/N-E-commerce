@@ -1,18 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { FileWarning } from "lucide-react";
-import Link from "next/link";
+import NotFoundComponent from "@/components/notFound";
 
 const NotFound = () => {
   return (
-    <div className="px-5 flex items-center justify-center flex-col h-[800px] space-y-4">
-      <FileWarning className="size-16 text-primary" />
+    <NotFoundComponent>
       <p>Parece que esse produto não existe.</p>
-      <Button asChild>
-        <Link href="/" className="text-primary text-sm font-semibold">
-          Voltar para pagina inicial
-        </Link>
-      </Button>
-    </div>
+    </NotFoundComponent>
   );
 };
 

@@ -2,7 +2,9 @@ import FavoriteButton from "@/components/favoriteButton";
 import Stars from "@/components/stars";
 import { Badge } from "@/components/ui/badge";
 import { Product } from "@prisma/client";
-import Image from "next/image";
+import { lazy } from "react";
+
+const Image = lazy(() => import("next/image"));
 
 interface ProductInfoProps {
   product: Product;
@@ -31,7 +33,12 @@ const ProductInfo = ({ product, hasStock, hasDiscount }: ProductInfoProps) => {
 
       <div className="flex justify-center items-center py-2">
         <div className="relative w-full max-w-[250px] h-[250px]">
-          <Image alt={product.name} src={product.imageURL} fill />
+          <Image
+            alt={product.name}
+            src={product.imageURL}
+            fill
+            sizes={"100%"}
+          />
         </div>
       </div>
 

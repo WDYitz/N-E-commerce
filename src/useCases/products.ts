@@ -42,7 +42,7 @@ class ProductUseCase {
       }
     });
 
-    if (!product) {
+    if (!product || !product.category) {
       notFound()
     }
 

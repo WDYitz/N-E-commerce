@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "None E-commerce",
+  title: "Neutral E-commerce",
   description: "Melhores produtos eletrônicos",
 };
 

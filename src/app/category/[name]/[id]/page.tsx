@@ -1,7 +1,6 @@
 import BreadcrumbNavigator from "@/components/breadCrumbNavigator";
 import { Separator } from "@/components/ui/separator";
 import useProductsFactory from "@/hooks/use-products-factory";
-import { notFound } from "next/navigation";
 import ProductDescription from "./components/product-description";
 import ProductInfo from "./components/product-info";
 import ProductPrices from "./components/product-prices";
@@ -18,13 +17,9 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     params.id
   );
 
-  if (!category || !product) {
-    notFound();
-  }
-
   const hasDiscount = product.discountPercentage > 0;
   const hasStock = product.quantity > 0;
-  const hasRelatedProducts = relatedProducts?.length > 0;
+  const hasRelatedProducts = relatedProducts.length > 0;
 
   return (
     <main className="flex flex-col p-5 space-y-4">
@@ -42,13 +37,13 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 
       <ProductPrices product={product} hasStock={hasStock} />
 
-      {hasRelatedProducts && (
+      {hasRelatedProducts ? (
         <RelatedProducts
           relatedProducts={relatedProducts}
           paramsId={params.id}
           category={category}
         />
-      )}
+      ) : null}
 
       <ProductDescription product={product} />
     </main>
