@@ -2,7 +2,7 @@ import { productUseCase } from "@/useCases/products";
 
 const useProductsFactory = async (id: string) => {
   const { category, product } =
-    await productUseCase.getProductsByIdAndCategories(id);
+    await productUseCase.getProductByIdWithCategories(id);
 
   const relatedProducts = await productUseCase.getProductsByCategoryId(
     category.id

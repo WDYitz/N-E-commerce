@@ -1,7 +1,7 @@
 import { db } from "@/lib/prisma";
 import { PrismaClient, Product } from "@prisma/client";
 
-interface ProductAndCategory {
+interface ProductWithCategoryType {
   product: Product;
   category: {
     id: string;
@@ -9,15 +9,29 @@ interface ProductAndCategory {
   };
 }
 
+interface ProductsWithCategoryType {
+  products: Product[];
+}
+
 class ProductUseCase {
   constructor(private prismaRepository: PrismaClient) { }
 
-  getAllProducts = async (): Promise<Product[]> => {
-    const products = await this.prismaRepository.product.findMany();
-    return products;
+  getAllProductsWithCategories = async (): Promise<ProductsWithCategoryType> => {
+    const products = await this.prismaRepository.product.findMany({
+      include: {
+        category: {
+          select: {
+            id: true,
+            name: true,
+          }
+        }
+      }
+    });
+
+    return { products };
   }
 
-  getProductsByIdAndCategories = async (id: string): Promise<ProductAndCategory> => {
+  getProductByIdWithCategories = async (id: string): Promise<ProductWithCategoryType> => {
     const product = await this.prismaRepository.product.findUnique({
       where: {
         id,

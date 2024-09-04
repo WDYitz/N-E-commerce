@@ -28,7 +28,9 @@ const ProductCard = ({ className, category, product }: ProductCardProps) => {
   const hasDiscount = product.discountPercentage > 0;
 
   return (
-    <Link href={`/category/${category?.name}/${product.id}`}>
+    <Link
+      href={`/category/${category?.name ?? product.categoryId}/${product.id}`}
+    >
       <Card className="rounded-md shadow-md p-3 min-w-[170px] h-[270px]">
         <CardContent
           className={cn(
@@ -36,7 +38,6 @@ const ProductCard = ({ className, category, product }: ProductCardProps) => {
             className
           )}
         >
-
           {hasDiscount && (
             <Badge className="absolute top-0 left-0 z-10">
               {product?.discountPercentage}% OFF
