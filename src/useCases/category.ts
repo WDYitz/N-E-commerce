@@ -1,5 +1,6 @@
 import { db } from "@/lib/prisma";
 import { Category, PrismaClient } from "@prisma/client";
+import { notFound } from "next/navigation";
 
 class CategoryUseCase {
   constructor(private prismaRepository: PrismaClient) { }
@@ -9,36 +10,16 @@ class CategoryUseCase {
     return categories;
   }
 
-  getCategoryById = async (id: string): Promise<Category | null> => {
-    const category = await this.prismaRepository.category.findUnique({
-      where: {
-        id,
-      },
-    });
-
-    return category;
-  }
-
-  getCategoryByName = async (name: string): Promise<Category | null> => {
+  getCategoryByName = async (name: string): Promise<Category> => {
     const category = await this.prismaRepository.category.findFirst({
       where: {
         name,
       },
     });
 
-    return category;
-  }
-
-  getCategoryByProductId = async (productId: string): Promise<Category | null> => {
-    const category = await this.prismaRepository.category.findFirst({
-      where: {
-        products: {
-          every: {
-            id: productId,
-          },
-        },
-      }
-    });
+    if (!category) {
+      notFound();
+    }
 
     return category;
   }

@@ -1,47 +1,62 @@
 "use client";
-import { Links } from "@/data/links";
-import { MenuIcon } from "lucide-react";
-import { usePathname } from "next/navigation";
-import Category from "./category";
+import { ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet";
+import { Card, CardContent } from "./ui/card";
+import { Sheet, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const Sidebar = () => {
-  const path = usePathname();
   return (
     <Sheet>
       <SheetTrigger asChild>
         {/* Menu Button */}
-        <Button variant="secondary" className="text-white">
-          <MenuIcon size={20} className="text-primary" />
+        <Button variant="secondary">
+          <ShoppingCart size={22} className="text-white" fill="white" />
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <SheetHeader>
-          <SheetTitle className="text-left">Menu</SheetTitle>
-        </SheetHeader>
-        {/* Links */}
-        <SheetClose asChild>
-          <div className="mt-5 space-y-2">
-            {Links.map((link, index) => (
-              <Category
-                key={index}
-                category={link}
-                className={
-                  path === "/category" + link.url ? "bg-secondary" : ""
-                }
-              />
-            ))}
+
+        <SheetTitle>Carrinho</SheetTitle>
+        <div className="flex h-full flex-col justify-between py-5">
+          <div className="space-y-2">
+            {/*  {products.map((product) => (
+                  <CartItem key={product.id} cartProduct={product} />
+                ))} */}
           </div>
-        </SheetClose>
+          <div className="mt-6">
+            <Card>
+              <CardContent className="p-5">
+                <div className="flex items-center justify-between pb-2 text-xs">
+                  <span className="text-muted-foreground">Subtotal</span>
+                  <span>{0}</span>
+                </div>
+
+                <div className="flex items-center justify-between border-b  text-xs">
+                  {/*  {Number(products?.[0].restaurant.deliveryFee) === 0 ? (
+                        <span className="uppercase text-primary">Grátis</span>
+                      ) : (
+                        formatCurrency(
+                          Number(products?.[0].restaurant.deliveryFee)
+                        )
+                      )} */}
+                </div>
+
+                <div className="flex items-center justify-between border-b pb-2 pt-2 text-xs">
+                  <span className="text-muted-foreground">Descontos</span>
+
+                  <span>{0}</span>
+                </div>
+
+                <div className="flex items-center justify-between pb-2 pt-2 text-xs font-semibold">
+                  <span>Total</span>
+                  <span>{0}</span>
+                </div>
+              </CardContent>
+            </Card>
+            <Button className="mt-6 w-full font-light " onClick={() => {}}>
+              Finalizar Compra
+            </Button>
+          </div>
+        </div>
         <SheetFooter></SheetFooter>
       </SheetContent>
     </Sheet>

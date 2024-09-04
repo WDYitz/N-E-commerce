@@ -1,38 +1,51 @@
 import BreadcrumbNavigator from "@/components/breadCrumbNavigator";
-import FavoriteButton from "@/components/favoriteButton";
-import Stars from "@/components/stars";
 import { Separator } from "@/components/ui/separator";
-import { productUseCase } from "@/useCases/products";
-
-import { notFound } from "next/navigation";
+import useProductsFactory from "@/hooks/use-products-factory";
+import ProductDescription from "./components/product-description";
+import ProductInfo from "./components/product-info";
+import ProductPrices from "./components/product-prices";
+import RelatedProducts from "./components/related-products";
 
 interface ProductPageProps {
   params: {
     id: string;
   };
 }
-const ProductPage = async ({ params }: ProductPageProps) => {
-  const products = await productUseCase.getProductById(params.id);
 
-  if (!products) {
-    notFound();
-  }
+const ProductPage = async ({ params }: ProductPageProps) => {
+  const { category, product, relatedProducts } = await useProductsFactory(
+    params.id
+  );
+
+  const hasDiscount = product.discountPercentage > 0;
+  const hasStock = product.quantity > 0;
+  const hasRelatedProducts = relatedProducts.length > 0;
 
   return (
     <main className="flex flex-col p-5 space-y-4">
       <div className="pt-2 pb-2">
-        <BreadcrumbNavigator product={products} category={undefined} />
+        <BreadcrumbNavigator product={product} category={category} />
       </div>
+
       <Separator />
-      <div className="flex flex-col">
-        <div className="flex justify-between">
-          <h2>{products?.name}</h2>
-          <FavoriteButton />
-        </div>
-        <div className="flex">
-          <Stars rating={products?.stars ?? 0} />
-        </div>
-      </div>
+
+      <ProductInfo
+        product={product}
+        hasStock={hasStock}
+        hasDiscount={hasDiscount}
+      />
+
+      <ProductPrices product={product} hasStock={hasStock} />
+
+      {hasRelatedProducts ? (
+        <RelatedProducts
+          relatedProducts={relatedProducts}
+          paramsId={params.id}
+          category={category}
+        />
+      ) : null}
+
+      <ProductDescription product={product} />
     </main>
   );
 };

@@ -1,26 +1,52 @@
 import { db } from "@/lib/prisma";
 import { PrismaClient, Product } from "@prisma/client";
+import { notFound } from "next/navigation";
+
+interface ProductWithCategoryType {
+  product: Product;
+  category: {
+    id: string;
+    name: string;
+  };
+}
+
+interface ProductsWithCategoryType {
+  products: Product[];
+}
 
 class ProductUseCase {
   constructor(private prismaRepository: PrismaClient) { }
 
-  getAllProducts = async (): Promise<Product[]> => {
-    const products = await this.prismaRepository.product.findMany();
-    return products;
+  getAllProductsWithCategories = async (): Promise<ProductsWithCategoryType> => {
+    const products = await this.prismaRepository.product.findMany({
+      include: {
+        category: {
+          select: {
+            id: true,
+            name: true,
+          }
+        }
+      }
+    });
+
+    return { products };
   }
 
-  getProductById = async (id: string): Promise<Product> => {
+  getProductByIdWithCategories = async (id: string): Promise<ProductWithCategoryType> => {
     const product = await this.prismaRepository.product.findUnique({
       where: {
         id,
       },
+      include: {
+        category: true
+      }
     });
 
-    if (!product) {
-      throw new Error("Product not found");
+    if (!product || !product.category) {
+      notFound()
     }
 
-    return product;
+    return { product, category: product.category };
   }
 
   getProductsByCategoryId = async (id: string): Promise<Product[]> => {

@@ -1,12 +1,14 @@
 import CategoriesQuickSearch from "@/components/categories-quick-search";
-import ProductCard from "@/components/product-card";
 import Services from "@/components/services";
 import { ServicesData } from "@/data/services-data";
 import { productUseCase } from "@/useCases/products";
 import Image from "next/image";
+import { lazy, Suspense } from "react";
+
+const ProductCard = lazy(() => import("@/components/product-card"));
 
 const Home = async () => {
-  const products = await productUseCase.getAllProducts();
+  const { products } = await productUseCase.getAllProductsWithCategories();
 
   return (
     <main className="flex flex-col p-5 space-y-4 ">
@@ -24,7 +26,9 @@ const Home = async () => {
           {products.map(
             (product) =>
               product.stars > 4 && (
-                <ProductCard key={product.id} product={product} />
+                <Suspense fallback={<div>Carregando...</div>} key={product.id}>
+                  <ProductCard key={product.id} product={product} />
+                </Suspense>
               )
           )}
         </div>

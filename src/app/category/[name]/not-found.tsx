@@ -3,7 +3,7 @@ import NotFoundComponent from "@/components/notFound";
 const NotFound = () => {
   return (
     <NotFoundComponent>
-      <p>Parece que esse produto não existe.</p>
+      <p>Parece que essa categoria não existe.</p>
     </NotFoundComponent>
   );
 };
