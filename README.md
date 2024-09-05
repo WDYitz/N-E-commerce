@@ -1,37 +1,10 @@
-
-## Installation
-
-```
-git clone https://github.com/WDYitz/shopping-cart.git
-```
-
-## Then 
-
-```bash
-npm install
-# or
-npm i
-```
-
-## after that run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-### Abra [http://localhost:3000](http://localhost:3000) em seu navegador.
-
-### Pressione as teclas `CTRL + SHIFT + M ` caso queira visualizar em telas menores.
+### *E-commerce fictício*
+## O Neutral é um e-commerce de produtos eletrônicos, la você encontra produtos de todos os valores.
 
 
-### ScreenShots
-
-![](./src/images/ScreenMobMain.png)
-
-![](./src/images/ScreenMobCart.png)
+### *Issues that needs to be fixed*
+  - [ ] Performance Issues.
+  - [ ] Image Render Performance.
+  - [ ] Data Fetching Performance. (Change the data fetching methods or implement new method with better performance, maybe use Server Actions instead of class methods) 
 
 
