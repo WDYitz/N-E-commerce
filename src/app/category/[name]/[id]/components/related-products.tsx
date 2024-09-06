@@ -4,7 +4,7 @@ import { Category, Product } from "@prisma/client";
 interface RelatedProductsProps {
   relatedProducts: Product[];
   paramsId: string;
-  category: Pick<Category, "id" | "name">;
+  category: Pick<Category, "name">;
 }
 
 const RelatedProducts = ({

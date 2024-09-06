@@ -18,7 +18,6 @@ interface ProductCardProps {
     | "stars"
     | "price"
     | "discountPercentage"
-    | "categoryId"
   >;
   url: string;
   className?: string;
