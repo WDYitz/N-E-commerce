@@ -1,8 +1,8 @@
-import { categoryUseCase } from "@/useCases/category";
+import { getCategories } from "@/actions/category/getCategories.server";
 import CategoryLink from "./category";
 
 const CategoriesQuickSearch = async () => {
-  const categories = await categoryUseCase.getAllCategories();
+  const { categories } = await getCategories();
 
   return (
     <div className="overflow-x-auto [&::-webkit-scrollbar]:hidden flex gap-3">

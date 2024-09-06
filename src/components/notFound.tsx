@@ -3,7 +3,7 @@ import { FileWarning } from "lucide-react";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-const NotFoundComponent = ({ children }: PropsWithChildren) => {
+const NotFoundBoudary = ({ children }: PropsWithChildren) => {
   return (
     <div className="px-5 flex items-center justify-center flex-col h-[800px] space-y-4">
       <FileWarning className="size-16 text-primary" />
@@ -17,4 +17,4 @@ const NotFoundComponent = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default NotFoundComponent;
+export default NotFoundBoudary;

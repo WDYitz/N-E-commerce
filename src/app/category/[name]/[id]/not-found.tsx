@@ -1,10 +1,10 @@
-import NotFoundComponent from "@/components/notFound";
+import NotFoundBoudary from "@/components/notFound";
 
 const NotFound = () => {
   return (
-    <NotFoundComponent>
+    <NotFoundBoudary>
       <p>Parece que esse produto não existe.</p>
-    </NotFoundComponent>
+    </NotFoundBoudary>
   );
 };
 
