@@ -7,7 +7,11 @@ interface CategoriesType {
 }
 
 export const getCategories = async (): Promise<CategoriesType> => {
-  const categories = await db.category.findMany();
+  const categories = await db.category.findMany({
+    include: {
+      products: true
+    }
+  });
 
   if (!categories) {
     notFound();

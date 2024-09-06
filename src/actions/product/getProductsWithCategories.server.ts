@@ -5,6 +5,7 @@ interface ProductsWithCategoriesType {
   products: Product[] & Pick<Category, 'id' | 'name'>[];
 }
 
+
 export const getProductsWithCategories = async (): Promise<ProductsWithCategoriesType> => {
   const products = await db.product.findMany({
     where: {

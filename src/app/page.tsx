@@ -9,6 +9,7 @@ import { Suspense } from "react";
 const Home = async () => {
   const { products } = await getProductsWithCategories();
 
+  
   return (
     <main className="flex flex-col p-5 space-y-4 ">
       <CategoriesQuickSearch />
@@ -26,7 +27,11 @@ const Home = async () => {
             (product) =>
               product.stars > 4 && (
                 <Suspense fallback={<div>Carregando...</div>} key={product.id}>
-                  <ProductCard key={product.id} product={product} url={`${product.categoryId}/${product.id}`}/>
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    url={`${product.categoryId}/${product.id}`}
+                  />
                 </Suspense>
               )
           )}
