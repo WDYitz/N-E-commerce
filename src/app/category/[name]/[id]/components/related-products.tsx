@@ -22,7 +22,7 @@ const RelatedProducts = ({
               <ProductCard
                 product={product}
                 key={product.id}
-                url={category.name}
+                url={`${category.name}/${product.id}`}
               />
             )
         )}
