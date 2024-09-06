@@ -7,10 +7,10 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Category, Product } from "@prisma/client";
+import { Product } from "@prisma/client";
 
 interface BreadcrumbNavigatorProps {
-  category?: Pick<Category, "name">
+  category?: string;
   product?: Pick<Product, "name">;
   categoryOnly?: boolean;
 }
@@ -20,7 +20,7 @@ const BreadcrumbNavigator = ({
   category,
   product,
 }: BreadcrumbNavigatorProps) => {
-  const CATEGORY_URI = `/category/${category?.name}`;
+  const CATEGORY_URI = `/category/${category}`;
 
   return (
     <Breadcrumb>
@@ -44,7 +44,7 @@ const BreadcrumbNavigator = ({
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link href={CATEGORY_URI} className="text-xs">
-              {category?.name ?? "..."}
+              {category ?? "..."}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>

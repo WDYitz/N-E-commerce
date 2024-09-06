@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { services } from "@/useCases/services";
-import { Category, Product } from "@prisma/client";
+import { Product } from "@prisma/client";
 import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,17 +20,16 @@ interface ProductCardProps {
     | "discountPercentage"
     | "categoryId"
   >;
-  category?: Pick<Category, "name">;
+  url: string;
   className?: string;
 }
 
-const ProductCard = ({ className, category, product }: ProductCardProps) => {
+const ProductCard = ({ className, url, product }: ProductCardProps) => {
   const hasDiscount = product.discountPercentage > 0;
+  const productLink = `/category/${url}`;
 
   return (
-    <Link
-      href={`/category/${category?.name ?? product.categoryId}/${product.id}`}
-    >
+    <Link href={productLink}>
       <Card className="rounded-md shadow-md p-3 min-w-[170px] h-[270px]">
         <CardContent
           className={cn(

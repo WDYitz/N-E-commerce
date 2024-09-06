@@ -29,6 +29,7 @@ model Product {
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
 
+  @@index([categoryId, id])
   @@map("products")
 }
 
@@ -40,5 +41,6 @@ model Category {
 
   products Product[]
 
+  @@index([name, id])
   @@map("categories")
 }
