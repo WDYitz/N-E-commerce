@@ -1,5 +1,5 @@
 import { db } from "@/lib/prisma";
-import { PrismaClient, Product } from "@prisma/client";
+import { Category, PrismaClient, Product } from "@prisma/client";
 import { notFound } from "next/navigation";
 
 interface ProductWithCategoryType {
@@ -11,7 +11,7 @@ interface ProductWithCategoryType {
 }
 
 interface ProductsWithCategoryType {
-  products: Product[];
+  products: Product[] & Pick<Category, 'id' | 'name'>[];
 }
 
 class ProductUseCase {
