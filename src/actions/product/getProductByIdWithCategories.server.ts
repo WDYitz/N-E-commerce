@@ -13,12 +13,7 @@ export const getProductByIdWithCategories = async (id: string): Promise<ProductW
       id,
     },
     include: {
-      category: {
-        select: {
-          id: true,
-          name: true,
-        }
-      }
+      category: true
     }
   })
 

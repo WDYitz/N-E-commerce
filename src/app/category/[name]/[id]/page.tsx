@@ -19,6 +19,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     product.categoryId
   );
 
+
   const hasDiscount = product?.discountPercentage > 0;
   const hasStock = product.quantity > 0;
   const hasRelatedProducts = relatedProducts.length > 0;

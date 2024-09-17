@@ -10,11 +10,11 @@ const Home = async () => {
   const { products } = await getProductsWithCategories();
 
   return (
-    <main className="flex flex-col p-5 space-y-4 ">
+    <main className="flex flex-col p-5 space-y-4 md:p-12">
       <CategoriesQuickSearch />
 
-      <div className="rounded-md p-5 relative w-full h-[140px]">
-        <Image alt="Ofertas inperdiveis" src="/banner.png" fill priority />
+      <div className="rounded-md relative w-full h-[150px] sm:h-[180px] md:hidden">
+        <Image alt="Ofertas inperdiveis" src="/banner.png" fill />
       </div>
 
       <div>
@@ -26,7 +26,11 @@ const Home = async () => {
             (product) =>
               product.stars > 4 && (
                 <Suspense fallback={<div>Carregando...</div>} key={product.id}>
-                  <ProductCard key={product.id} product={product} url={`${product.categoryId}/${product.id}`}/>
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    url={`${product.categoryId}/${product.id}`}
+                  />
                 </Suspense>
               )
           )}
