@@ -20,12 +20,11 @@ const CategoryLink = ({ category, className, icon }: CategoryProps) => {
       : URI_HOME_PREFIX;
 
   return (
-    <Button
-      variant="ghost"
-      className={cn("text-white w-full justify-start gap-2", className)}
-      asChild
-    >
-      <Link href={url}>
+    <Button variant="ghost" asChild>
+      <Link
+        href={url}
+        className={cn("text-white w-full justify-start gap-2", className)}
+      >
         {icon}
         {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
       </Link>
