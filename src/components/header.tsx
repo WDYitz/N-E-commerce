@@ -4,7 +4,7 @@ import Sidebar from "./sidebar";
 
 const Header = () => {
   return (
-    <header className="p-5 flex justify-between">
+    <header className="p-5 flex justify-between md:p-12">
       <div className="relative w-[35px] h-[35px]">
         <Link href="/">
         <Image src="/logo.svg" alt="Logo" fill className="text-white" />

@@ -18,9 +18,7 @@ const Sidebar = () => {
         <SheetTitle>Carrinho</SheetTitle>
         <div className="flex h-full flex-col justify-between py-5">
           <div className="space-y-2">
-            {/*  {products.map((product) => (
-                  <CartItem key={product.id} cartProduct={product} />
-                ))} */}
+            
           </div>
           <div className="mt-6">
             <Card>
@@ -31,13 +29,7 @@ const Sidebar = () => {
                 </div>
 
                 <div className="flex items-center justify-between border-b  text-xs">
-                  {/*  {Number(products?.[0].restaurant.deliveryFee) === 0 ? (
-                        <span className="uppercase text-primary">Grátis</span>
-                      ) : (
-                        formatCurrency(
-                          Number(products?.[0].restaurant.deliveryFee)
-                        )
-                      )} */}
+                  
                 </div>
 
                 <div className="flex items-center justify-between border-b pb-2 pt-2 text-xs">
