@@ -1,6 +1,4 @@
 ### *E-commerce fictício*
-## O Neutral é um e-commerce de produtos eletrônicos, la você encontra produtos de todos os valores.
-
 
 ### *Issues that needs to be fixed*
   - [ ] Performance Issues.
