@@ -20,7 +20,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   );
 
   return (
-    <main className="flex flex-col p-5 space-y-4 sm:px-8 md:px-12 lg:px-24">
+    <main className="flex flex-col p-5 space-y-4 sm:px-8 md:px-12 lg:px-28 2xl:px-52">
       <div className="pt-2 pb-2">
         <BreadcrumbNavigator product={product} category={category.name} />
       </div>

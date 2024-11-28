@@ -15,15 +15,6 @@ const Navbar = ({ categories }: NavbarProps) => {
   const pathname = usePathname()
   const isTabletOrHigher = useMedia("(min-width: 920px)", false);
   const isHomeURL = categories.find((category) => category.name === "/");
-  const categoriesURL = categories.filter((category) => category.name == pathname);
-
-  const activeLink = () => {
-    pathname === "category/tablet" ? "bg-primary-500" : "";
-    pathname === "/phone" ? "bg-primary-500" : "";
-    pathname === "/category/earbuds" ? "bg-primary-500" : "";
-    pathname === "/smartWatch" ? "bg-primary-500" : "";
-    pathname === "/laptop" ? "bg-primary-500" : "";
-  }
 
   if (isTabletOrHigher) {
     return <nav>
@@ -34,7 +25,7 @@ const Navbar = ({ categories }: NavbarProps) => {
               <CategoriesLink
                 key={category.id}
                 category={category}
-                className={`text-lg ${activeLink}`}
+                className={`text-lg ${pathname === `/category/${category.name}` ? "bg-primary" : "bg-transparent"}`}
               />
             )
         )}
@@ -58,7 +49,7 @@ const Navbar = ({ categories }: NavbarProps) => {
                 <CategoriesLink
                   key={category.id}
                   category={category}
-                  className={`w-[150px] text-left ${activeLink}`}
+                  className={`w-[150px] text-left ${pathname === `/category/${category.name}` ? "bg-primary" : "bg-transparent"}`}
                 />
               )
           )}

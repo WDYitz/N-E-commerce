@@ -22,6 +22,7 @@ const CategoriesLink = ({ category, className, icon }: CategoryProps) => {
     <Button variant="ghost" asChild>
       <Link
         href={url}
+        className={className}
       >
         {icon}
         {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
