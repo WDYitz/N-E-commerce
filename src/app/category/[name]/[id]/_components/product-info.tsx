@@ -31,13 +31,13 @@ const ProductInfo = ({ product, hasStock, hasDiscount }: ProductInfoProps) => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center py-2">
+      <div className="flex justify-center items-center py-2 lg:py-8">
         <div className="relative w-full max-w-[250px] h-[250px]">
           <Image
             alt={product.name}
             src={product.imageURL}
             fill
-            sizes={"100%"}
+            sizes="100%"
           />
         </div>
       </div>

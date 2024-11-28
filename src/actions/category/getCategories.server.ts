@@ -2,7 +2,7 @@ import { db } from "@/lib/prisma";
 import { Category } from "@prisma/client";
 import { notFound } from "next/navigation";
 
-interface CategoriesType {
+export interface CategoriesType {
   categories: Category[];
 }
 

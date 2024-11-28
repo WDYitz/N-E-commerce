@@ -1,16 +1,16 @@
+import type { Product } from "@prisma/client";
 import { db } from "@/lib/prisma";
-import { Category, Product } from "@prisma/client";
 
 interface ProductsWithCategoriesType {
-  products: Product[] & Pick<Category, 'id' | 'name'>[];
+  products: Product[];
 }
 
-export const getProductsWithCategories = async ({ take }: { take?: number }): Promise<ProductsWithCategoriesType> => {
+export const getProductsWithNoPromo = async ({ take }: { take?: number }): Promise<ProductsWithCategoriesType> => {
   try {
     const products = await db.product.findMany({
       where: {
         discountPercentage: {
-          gt: 0
+          lte: 0
         }
       },
       take,

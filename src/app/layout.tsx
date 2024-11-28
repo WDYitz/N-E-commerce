@@ -4,7 +4,8 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { PropsWithChildren } from "react";
-import ScreensInDevelopment from "./screen-development";
+import ScreensInDevelopment from "./(under-development)/screen-development";
+import { CartProvider } from "@/contexts/cart.";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,17 +13,22 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Neutral E-commerce",
-  description: "Melhores produtos eletrônicos",
+  title: {
+    default: "Neutral-commerce",
+    template: "%s | Neutral-commerce",
+  },
+  description: "Melhores produtos da baixada, encontre produtos de qualidade com o melhor preço.",
 };
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="pt-BR" className="dark">
-      <body className={poppins.className}>
-        <Header />
-        <ScreensInDevelopment>{children}</ScreensInDevelopment>
-        <Footer />
+      <body className={`${poppins.className}`}>
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

@@ -7,8 +7,8 @@ interface AdvantagesProps {
 
 const Services = ({ service }: AdvantagesProps) => {
   return (
-    <Card className="p-2 h-[230px] w-[46%] hover:border-indigo-400 transition-all md:p-8">
-      <CardContent className="p-0 flex flex-col justify-center items-center gap-3 h-full">
+    <Card className="p-2 h-[230px] w-[100%] hover:border-indigo-400 transition-all md:p-8">
+      <CardContent className="p-0 flex flex-col justify-center lg:justify-between items-center gap-3 h-full">
         {service.icon}
         <h3 className="text-md font-semibold text-neutral-300">
           {service.title}

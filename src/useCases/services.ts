@@ -1,11 +1,10 @@
-import { Product } from "@prisma/client";
-
 class Services {
-  formatCurrency(value: number): string {
-    return `R$ ${Intl.NumberFormat("pt-BR", {
+  formatCurrency(value: number) {
+    return Intl.NumberFormat("pt-BR", {
+      style: "currency",
       currency: "BRL",
       minimumFractionDigits: 2,
-    }).format(Number(value))}`;
+    }).format(value);
   }
 
   createRating = (rating: number): number[] => {
@@ -17,17 +16,17 @@ class Services {
     return stars;
   }
 
-  calculateProductsWithDiscount = (product: Pick<Product, "price" | "discountPercentage">): number => {
-    if (product.discountPercentage === 0) {
-      return Number(product.price);
-    }
+  calculateProductsWithDiscount = (price: number, discountPercentage: number): number => {
+    if (discountPercentage === 0) return Number(price);
 
-    const discount = Number(product.price) * (product.discountPercentage / 100);
+    const discount = Number(price) * (discountPercentage / 100);
 
-    return Number(product.price) - discount;
+    return Number(price) - discount;
   };
 
-
+  sanitizeValue = async (value: any): Promise<any> => {
+    return JSON.parse(JSON.stringify(value));
+  }
 }
 
 export const services = new Services();

@@ -2,7 +2,8 @@ import { db } from "@/lib/prisma";
 import { Product } from "@prisma/client";
 
 interface ProductsByCategoryIdType {
-  products: Product[]
+  relatedProducts: Product[]
+  hasRelatedProducts: boolean
 }
 
 export const getProductsByCategoryId = async (id: string): Promise<ProductsByCategoryIdType> => {
@@ -14,5 +15,7 @@ export const getProductsByCategoryId = async (id: string): Promise<ProductsByCat
     },
   });
 
-  return { products };
+  const hasRelatedProducts = products.length > 0;
+
+  return { relatedProducts: products, hasRelatedProducts };
 }
