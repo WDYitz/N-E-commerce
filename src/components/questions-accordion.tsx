@@ -7,24 +7,23 @@ import {
 
 const QuestionsAccordion = () => {
   return (
-    <Accordion type="single" collapsible className="w-full lg:w-[700px]">
+    <Accordion type="single" collapsible className="w-full lg:p-12">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionTrigger>Quais são as opções de pagamento disponíveis no site?</AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+          Cartão de crédito, boleto bancário, Pix, entre outras opções.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionTrigger>Como posso rastrear meu pedido?</AccordionTrigger>
         <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          componentsaesthetic.
+          Verifique o codigo de rastreio no email de confirmação do pedido.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionTrigger>Quais são os prazos de entrega e as opções de envio disponíveis?</AccordionTrigger>
         <AccordionContent>
-          Yes. Its animated by default, but you can disable it if you prefer.
+          Envio Expresso de 1 a 3 dias úteis e Envio Normal de 4 a 8 dias úteis.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
