@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import { Category } from "@prisma/client";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -9,7 +8,7 @@ interface CategoryProps {
   icon?: React.ReactNode;
 }
 
-const CategoryLink = ({ category, className, icon }: CategoryProps) => {
+const CategoriesLink = ({ category, className, icon }: CategoryProps) => {
   // MEMORY PERFORMANCE: Avoid using string concatenation in the render method
   const URI_CATEGORY_FULL_PREFIX = "/category/" + category.name;
   const URI_CATEGORY_SINGLE_PREFIX = "/" + category.name;
@@ -23,7 +22,6 @@ const CategoryLink = ({ category, className, icon }: CategoryProps) => {
     <Button variant="ghost" asChild>
       <Link
         href={url}
-        className={cn("text-white w-full justify-start gap-2", className)}
       >
         {icon}
         {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
@@ -32,4 +30,4 @@ const CategoryLink = ({ category, className, icon }: CategoryProps) => {
   );
 };
 
-export default CategoryLink;
+export default CategoriesLink;
