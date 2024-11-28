@@ -1,11 +1,10 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { CartProvider } from "@/contexts/cart.";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { PropsWithChildren } from "react";
-import ScreensInDevelopment from "./(under-development)/screen-development";
-import { CartProvider } from "@/contexts/cart.";
 
 const poppins = Poppins({
   subsets: ["latin"],
