@@ -11,22 +11,13 @@ const Home = async () => {
   const { products } = await getProductsWithNoPromo({ take: 15 });
 
   return (
-    <main className="flex flex-col p-5 space-y-4  sm:px-8 md:px-12 lg:px-28 2xl:px-52 lg:space-y-8 min-h-[100vh]">
-      <div className="md:space-y-4 lg:flex gap-4 lg:space-y-0">
-        <div className="hidden rounded-md relative w-full h-[150px] sm:h-[180px] md:flex md:h-[180px] lg:h-[200px]">
-          <Image alt="Ofertas inperdiveis" src="/banner.png" fill />
-        </div>
-        <div className="rounded-md relative w-full h-[150px] sm:h-[180px] md:flex md:h-[180px] lg:h-[200px]">
-          <Image alt="ate 20% de desconto" src="/banner-2.png" fill />
-        </div>
-      </div>
-
+    <main className="flex flex-col p-5 space-y-4 sm:px-8 md:px-12 lg:px-28 2xl:px-52 lg:space-y-12 min-h-[100vh]">
       <div>
         <h2 className="text-sm font-semibold uppercase text-neutral-500">
           Produtos em promoção
         </h2>
         <div className="w-full">
-          <div className="flex gap-4 mt-4 overflow-x-auto no-scrollbar">
+          <div className="flex gap-4 mt-4 overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3">
             {promoProducts.map(
               (product) =>
                 <ProductCard
@@ -39,16 +30,14 @@ const Home = async () => {
         </div>
       </div>
 
-      <div className="rounded-md relative w-full h-[150px] sm:h-[180px] md:hidden">
-        <Image alt="Ofertas inperdiveis" src="/banner.png" fill />
-      </div>
+
 
       <div className="">
         <h2 className="text-sm font-semibold uppercase text-neutral-500">
           Nossos Produtos
         </h2>
         <div className="w-full">
-          <div className="flex gap-4 mt-4 overflow-x-auto no-scrollbar">
+          <div className="flex gap-4 mt-4 overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3">
             {products.map(
               (product) =>
                 <ProductCard

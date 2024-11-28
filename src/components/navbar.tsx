@@ -6,6 +6,7 @@ import { useMedia } from "react-use";
 import CategoriesLink from "./category";
 import { Button } from "./ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
+import CategoryLinksMotion from "./category";
 
 interface NavbarProps {
   categories: Category[];
@@ -14,27 +15,22 @@ interface NavbarProps {
 const Navbar = ({ categories }: NavbarProps) => {
   const pathname = usePathname()
   const isTabletOrHigher = useMedia("(min-width: 920px)", false);
-  const isHomeURL = categories.find((category) => category.name === "/");
-  const categoriesURL = categories.filter((category) => category.name == pathname);
-
-  const activeLink = () => {
-    pathname === "category/tablet" ? "bg-primary-500" : "";
-    pathname === "/phone" ? "bg-primary-500" : "";
-    pathname === "/category/earbuds" ? "bg-primary-500" : "";
-    pathname === "/smartWatch" ? "bg-primary-500" : "";
-    pathname === "/laptop" ? "bg-primary-500" : "";
-  }
+  const isNotHomeRoute = categories.find((category) => category.name !== "/");
 
   if (isTabletOrHigher) {
     return <nav>
       <ul className="flex justify-center space-x-4">
         {categories.map(
           (category) =>
-            !isHomeURL && (
-              <CategoriesLink
+            isNotHomeRoute && (
+              <CategoryLinksMotion
                 key={category.id}
                 category={category}
-                className={`text-lg ${activeLink}`}
+                className={`text-lg text-left transition-all`}
+                initial={{ scale: 0, backgroundColor: "transparent" }}
+                animate={{ scale: 1, backgroundColor: pathname === `/category/${category.name}` ? "#8161ff" : "transparent" }}
+                whileDrag={{ backgroundColor: "#8161ff" }}
+                transition={{ duration: 0.2, type: "spring" }}
               />
             )
         )}
@@ -54,11 +50,15 @@ const Navbar = ({ categories }: NavbarProps) => {
         <SheetClose className="flex flex-col space-y-2">
           {categories.map(
             (category) =>
-              !isHomeURL && (
+              isNotHomeRoute && (
                 <CategoriesLink
                   key={category.id}
                   category={category}
-                  className={`w-[150px] text-left ${activeLink}`}
+                  className={`w-[150px] text-left`}
+                  initial={{ scale: 0, backgroundColor: "transparent" }}
+                  animate={{ scale: 1, backgroundColor: pathname === `/category/${category.name}` ? "#8161ff" : "transparent" }}
+                  whileDrag={{ backgroundColor: "#8161ff" }}
+                  transition={{ duration: 0.2, type: "spring" }}
                 />
               )
           )}

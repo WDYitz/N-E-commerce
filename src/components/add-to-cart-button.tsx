@@ -24,7 +24,7 @@ const AddToCartButton = forwardRef<HTMLButtonElement, AddToCartButtonProps>(({ p
   };
 
   return (
-    <Button variant="default" className={cn(`w-[40px] h-[40px] p-2`, className)} onClick={handleAddProductToCart} ref={ref}>
+    <Button variant="default" className={cn(`w-[40px] h-[40px] p-2 lg:w-[50px] lg:h-[50px]`, className)} onClick={handleAddProductToCart} ref={ref}>
       <ShoppingBag size={20} />
     </Button>
   );

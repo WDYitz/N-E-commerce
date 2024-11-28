@@ -36,7 +36,7 @@ const ProductCard = async ({ className, url, product }: ProductCardProps) => {
             </Badge>
           )}
 
-          <div className="relative w-full h-[60%]">
+          <div className="relative w-full h-[60%] lg:h-[70%]">
             <Suspense fallback={<Loader2 className="animate-spin" size={16} />} >
               <Image
                 src={product.imageURL ?? ""}
