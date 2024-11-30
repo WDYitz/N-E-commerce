@@ -5,7 +5,7 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { forwardRef, memo } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { motion } from "motion/react";
 
 type CartItemProps = {

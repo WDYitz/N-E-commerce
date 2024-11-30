@@ -1,6 +1,8 @@
 import { getProductsByCategoryName } from "@/actions/product/getProductsByCategoryName.server";
+import { productCardAnimations } from "@/animations/product-card-animation";
 import BreadcrumbNavigator from "@/components/breadCrumbNavigator";
-import ProductCard from "@/components/product-card";
+import ProductCardMotion from "@/components/motion-components/product-card";
+import ProductCard from "@/components/motion-components/product-card";
 import { Separator } from "@/components/ui/separator";
 
 interface CategoryPageProps {
@@ -20,11 +22,13 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
       <Separator />
       <h2>{params.name.toLocaleUpperCase()}</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {category?.products.map((product) => (
-          <ProductCard
+        {category?.products.map((product, index) => (
+          <ProductCardMotion
             product={product}
             key={product.id}
             url={`${category.name}/${product.id}`}
+            {...productCardAnimations}
+            transition={{ delay: productCardAnimations["transition"].delay * index }}
           />
         ))}
       </div>

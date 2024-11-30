@@ -1,10 +1,10 @@
 import { getProductsWithCategories } from "@/actions/product/getProductsWithCategories.server";
 import { getProductsWithNoPromo } from "@/actions/product/getProductsWithNoPromotion.server";
-import ProductCard from "@/components/product-card";
+import { productCardAnimations } from "@/animations/product-card-animation";
+import ProductCardMotion from "@/components/motion-components/product-card";
 import QuestionsAccordion from "@/components/questions-accordion";
 import Services from "@/components/services";
 import { ServicesData } from "@/data/services-data";
-import Image from "next/image";
 
 const Home = async () => {
   const { products: promoProducts } = await getProductsWithCategories({ take: 5 });
@@ -19,18 +19,21 @@ const Home = async () => {
         <div className="w-full">
           <div className="flex gap-4 mt-4 overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3">
             {promoProducts.map(
-              (product) =>
-                <ProductCard
+              (product, index) =>
+                <ProductCardMotion
                   key={product.id}
                   product={product}
                   url={`${product.categoryId}/${product.id}`}
+                  initial={productCardAnimations["initial"]}
+                  animate={productCardAnimations["animate"]}
+                  transition={{
+                    delay: productCardAnimations["transition"].delay * index,
+                  }}
                 />
             )}
           </div>
         </div>
       </div>
-
-
 
       <div className="">
         <h2 className="text-sm font-semibold uppercase text-neutral-500">
@@ -39,11 +42,14 @@ const Home = async () => {
         <div className="w-full">
           <div className="flex gap-4 mt-4 overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3">
             {products.map(
-              (product) =>
-                <ProductCard
+              (product, index) =>
+                <ProductCardMotion
                   key={product.id}
                   product={product}
                   url={`${product.categoryId}/${product.id}`}
+                  initial={productCardAnimations["initial"]}
+                  animate={productCardAnimations["animate"]}
+                  transition={{ delay: productCardAnimations["transition"].delay * index }}
                 />
             )}
           </div>

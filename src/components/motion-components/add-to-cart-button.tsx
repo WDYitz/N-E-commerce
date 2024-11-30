@@ -1,6 +1,6 @@
 "use client"
 import { ShoppingBag } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useCart } from "@/contexts/cart.";
 import type { Product } from "@prisma/client";
 import { motion } from "motion/react";
@@ -31,7 +31,6 @@ const AddToCartButton = forwardRef<HTMLButtonElement, AddToCartButtonProps>(({ p
 })
 
 AddToCartButton.displayName = "AddToCartButton";
-
 const AddToCartButtonMotion = motion(AddToCartButton);
 
 export default AddToCartButtonMotion;
