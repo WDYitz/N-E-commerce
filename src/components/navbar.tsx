@@ -3,10 +3,11 @@ import type { Category } from "@prisma/client";
 import { MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useMedia } from "react-use";
-import CategoriesLink from "./category";
+import CategoriesLink from "./motion-components/category";
 import { Button } from "./ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
-import CategoryLinksMotion from "./category";
+import CategoryLinksMotion from "./motion-components/category";
+import { stagger } from "motion/react";
 
 interface NavbarProps {
   categories: Category[];
@@ -30,7 +31,7 @@ const Navbar = ({ categories }: NavbarProps) => {
                 initial={{ scale: 0, backgroundColor: "transparent" }}
                 animate={{ scale: 1, backgroundColor: pathname === `/category/${category.name}` ? "#8161ff" : "transparent" }}
                 whileDrag={{ backgroundColor: "#8161ff" }}
-                transition={{ duration: 0.2, type: "spring" }}
+                transition={{ duration: stagger(0.2), type: "spring" }}
               />
             )
         )}
@@ -57,8 +58,7 @@ const Navbar = ({ categories }: NavbarProps) => {
                   className={`w-[150px] text-left`}
                   initial={{ scale: 0, backgroundColor: "transparent" }}
                   animate={{ scale: 1, backgroundColor: pathname === `/category/${category.name}` ? "#8161ff" : "transparent" }}
-                  whileDrag={{ backgroundColor: "#8161ff" }}
-                  transition={{ duration: 0.2, type: "spring" }}
+                  transition={{ duration: stagger(0.2), type: "spring" }}
                 />
               )
           )}
