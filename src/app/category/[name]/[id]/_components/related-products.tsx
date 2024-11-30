@@ -1,4 +1,5 @@
-import ProductCard from "@/components/product-card";
+import { productCardAnimations } from "@/animations/product-card-animation";
+import ProductCardMotion from "@/components/motion-components/product-card";
 import { Category, Product } from "@prisma/client";
 
 interface RelatedProductsProps {
@@ -17,12 +18,14 @@ const RelatedProducts = ({
       <span className="uppercase font-semibold">produtos relacionados</span>
       <div className="flex overflow-x-scroll [&::-webkit-scrollbar]:hidden gap-4">
         {relatedProducts.map(
-          (product) =>
+          (product, index) =>
             product.id !== paramsId && (
-              <ProductCard
+              <ProductCardMotion
                 product={product}
                 key={product.id}
                 url={`${category.name}/${product.id}`}
+                {...productCardAnimations}
+                transition={{ delay: productCardAnimations["transition"].delay * index }}
               />
             )
         )}

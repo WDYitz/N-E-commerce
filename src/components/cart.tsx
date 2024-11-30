@@ -3,7 +3,7 @@ import { useCart } from "@/contexts/cart.";
 import { services } from "@/useCases/services";
 import { ShoppingBag } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import CartItemMotion from "./cart-item";
+import CartItemMotion from "./motion-components/cart-item";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Sheet, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "./ui/sheet";
