@@ -58,7 +58,7 @@ const Navbar = ({ categories }: NavbarProps) => {
                   className={`w-[150px] text-left`}
                   initial={{ scale: 0, backgroundColor: "transparent" }}
                   animate={{ scale: 1, backgroundColor: pathname === `/category/${category.name}` ? "#8161ff" : "transparent" }}
-                  transition={{ duration: stagger(0.2), type: "spring" }}
+                  transition={{ duration: 0.2, type: "spring" }}
                 />
               )
           )}
